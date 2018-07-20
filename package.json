@@ -1,0 +1,22 @@
+{
+  "name": "expresspractice",
+  "version": "1.0.0",
+  "description": "Used for learning express",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/selden-lin/expressPractice.git"
+  },
+  "author": "Selden Lin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/selden-lin/expressPractice/issues"
+  },
+  "homepage": "https://github.com/selden-lin/expressPractice#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
