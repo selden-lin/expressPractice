@@ -1,4 +1,5 @@
 var blogsObj = require("../blog.json");
+var home = require("../home.json");
 var blogs = blogsObj.blogs;
 var pageSize = 10;
 
@@ -30,19 +31,25 @@ module.exports.resumeCtrl = function(req, res) {
 // ****************** The back end *************************
 
 module.exports.newBlogCtrl = function(req, res) {
-    res.render("")
+    res.render("adminNewBlog", {title: "Add a new blog"});
 }
 
 module.exports.editBlogCtrl = function(req, res) {
-    res.send("This is where a new blog post will be edited");
+    res.render("adminEditBlog", {title: "Edit a blog"});
 }
 
 module.exports.editHomeCtrl = function(req, res) {
-    res.send("This is where the content on the home page will be edited");
+    var editAwardsHandler = function(event) {
+        console.log(event);
+    }
+    var handlers = {
+        "awards": editAwardsHandler
+    }
+    res.render("adminEditHome", {title: "Editing the home page", items: home, handlers: handlers});
 }
 
 module.exports.adminBlogListCtrl = function(req, res) {
-    res.send("The is where the list of blog posts will be listed on the home page");
+    res.render("adminListBlog", {title: "List of all blog posts"});
 }
 
 

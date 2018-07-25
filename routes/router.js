@@ -25,16 +25,21 @@ router.get("/resume", ctrl.resumeCtrl);
 
 
 // Add a new blog item
-router.get("admin/newBlog", ctrl.newBlogCtrl);
+router.get("/admin/newBlog", ctrl.newBlogCtrl);
 
 // Edit a blog item
-router.get("admin/editBlog/:num", ctrl.editBlogCtrl);
+router.get("/admin/editBlog/:num", ctrl.editBlogCtrl);
 
 // Edit the home page
-router.get("admin/editHome", ctrl.editHomeCtrl);
+router.get("/admin/editHome", ctrl.editHomeCtrl);
 
 // List the blog items for updating
-router.get("admin/listBlog/:num", ctrl.adminBlogListCtrl);
+router.get("/admin/listBlog", function(req, res) {
+    res.redirect("/admin/listBlog/0");
+});
+
+// List the blog items for updating
+router.get("/admin/listBlog/:num", ctrl.adminBlogListCtrl);
 
 
 // ************************  The REST api *************************

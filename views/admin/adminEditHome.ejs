@@ -1,0 +1,163 @@
+<html>
+<%- include header.ejs %>
+
+<body>
+    <%- include adminNav.ejs %>
+    <div class="container">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h4>Title</h4>
+            </div>
+            <div class="panel-body">
+                <form action="" method="POST">
+                    <div class="form-group">
+                        <label for="title">Enter text</label>
+                        <input type="text" class="form-control" id="title" name="title" value="<%= items.title %>">
+                        <input type="submit" class="form-control">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h4>Description</h4>
+            </div>
+            <div class="panel-body">
+                <form action="" method="POST">
+                    <div class="form-group">
+                        <label for="description">Enter text</label>
+                        <input type="text" class="form-control" id="description" name="description" value="<%= items.description %>">
+                        <input type="submit" class="form-control">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h4>Awards</h4>
+            </div>
+            <div class="panel-body">
+                <form action="" method="POST">
+                    <table class="table table-hover">
+                        <tr>
+                            <th>Year</th>
+                            <th>Title</th>
+                            <th>Description</th>
+                        </tr>
+                        <% for(var x=0;x<items.awards.length;x++) { %>
+                        <tr>
+                            <td><%= items.awards[x].year %></td>
+                            <td><%= items.awards[x].title %></td>
+                            <td><%= items.awards[x].description %></td>
+                            <td><input onclick='<%= handlers.awards() %>' type="button" class="adminEditField btn btn-primary" value="edit"></td>
+                        </tr>
+                        <% } %>
+                    </table>
+                    <!-- Is hidden at first  -->
+                    <div class="form-group" style="display: none">
+                        <label for="awards">Enter text</label>
+                        <input type="text" class="form-control" id="awards" name="awards" value="<%= items.awards %>">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h4>Volunteering</h4>
+            </div>
+            <div class="panel-body">
+                <form action="" method="POST">
+                    
+                    <table class="table table-hover">
+                        <tr>
+                            <th>Location</th>
+                            <th>Start</th>
+                            <th>end</th>
+                            <th>Association</th>
+                            <th>Position</th>
+                        </tr>
+                        <% for(var x=0;x<items.volunteering.length;x++) { %>
+                        <tr>
+                            <td><%= items.volunteering[x].location %></td>
+                            <td><%= items.volunteering[x].start %></td>
+                            <td><%= items.volunteering[x].end %></td>
+                            <td><%= items.volunteering[x].association %></td>
+                            <td><%= items.volunteering[x].position %></td>
+                            <td><input class="adminEditField" type="button" class="btn btn-primary" value="edit"></td>
+                        </tr>
+                        <% } %>
+                    </table>
+                    
+                    <!-- Is hidden at first  -->
+                    <div class="form-group" style="display: none">
+                        <label for="awards">Enter text</label>
+                        <input type="text" class="form-control" id="volunteering" name="volunteering" value="<%= items.volunteering %>">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h4>Leadership</h4>
+            </div>
+            <div class="panel-body">
+                <form action="" method="POST">
+                    <table class="table table-hover">
+                        <tr>
+                            <th>Location</th>
+                            <th>Start</th>
+                            <th>end</th>
+                            <th>Association</th>
+                            <th>Position</th>
+                        </tr>
+                        <% for(var x=0;x<items.leadership.length;x++) { %>
+                        <tr>
+                            <td><%= items.leadership[x].location %></td>
+                            <td><%= items.leadership[x].start %></td>
+                            <td><%= items.leadership[x].end %></td>
+                            <td><%= items.leadership[x].association %></td>
+                            <td><%= items.leadership[x].position %></td>
+                            <td><input class="adminEditField" type="button" class="btn btn-primary" value="edit"></td>
+                        </tr>
+                        <% } %>
+                    </table>
+                    
+                    <!-- Is hidden at first  -->
+                    <div class="form-group" style="display: none">
+                        <label for="title">Enter text</label>
+                        <input type="text" class="form-control" id="leadership" name="leadership" value="<%= items.leadership %>">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h4>Skills</h4>
+            </div>
+            <div class="panel-body">
+                <form action="" method="POST">
+                    <table class="table table-hover">
+                        <tr>
+                            <th>Title</th>
+                            <th>Items</th>
+                        </tr>
+                        <% for(var x=0;x<items.skillsAndInterests.length;x++) { %>
+                        <tr>
+                            <td><%= items.skillsAndInterests[x].title %></td>
+                            <td><%= items.skillsAndInterests[x].items.toString() %></td>
+                            <td><input class="adminEditField" type="button" class="btn btn-primary" value="edit"></td>
+                        </tr>
+                        <% } %>
+                    </table>
+                    
+                    <!-- Is hidden at first  -->
+                    <div class="form-group" style="display: none">
+                        <label for="title">Enter text</label>
+                        <input type="text" class="form-control" id="skills" name="skills" value="<%= items.skillsAndInterests %>">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

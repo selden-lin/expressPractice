@@ -1,0 +1,48 @@
+{
+    "title": "Home page",
+    "description": "I'm a gay faggot",
+    "awards": [
+        {
+            "year": 2018,
+            "title": "Honour roll",
+            "description": "Given to students with an average above 80%"
+        },
+        {
+            "year": 2018,
+            "title": "Award of excellence",
+            "description": "Given to students with an average above 80%"
+        }
+    ],
+    "volunteering": [
+        {
+            "location": "London, ON",
+            "start": "Today",
+            "end": "Tomorrow",
+            "association": "VON Canada (Blood Pressure Clinic)",
+            "position": "Student Volunteer",
+            "description": [
+                "Responsible for taking people's blood pressure"
+            ]
+        }
+    ],
+    "leadership": [
+        {
+            "location": "London, ON",
+            "start": "Today",
+            "end": "Tomorrow",
+            "association": "GMMA",
+            "position": "VP events",
+            "description": [
+                "Coordinated medical missions and events for the organization"
+            ]
+        }
+    ],
+    "skillsAndInterests": [
+        {
+            "title": "Music interests",
+            "items": [
+                "Piano", "viola"
+            ]
+        }
+    ]
+}
