@@ -1,4 +1,5 @@
-var blogs = require("../blog.json");
+var blogsObj = require("../blog.json");
+var blogs = blogsObj.blogs;
 var pageSize = 10;
 
 
@@ -8,40 +9,40 @@ module.exports.homeCtrl = function (req, res) {
     res.render("home", {title: "home"});
 }
 
-module.export.blogListCtrl = function(req, res) {
+module.exports.blogListCtrl = function(req, res) {
     var pageNum = req.params.num;
     var maxPages = Math.floor(blogs.length/pageSize);
     if (pageNum > maxPages) {
         pageNum = maxPages;
     }
     var itemsToShow = blogs.slice(10*(pageNum-1), 10*pageNum);
-    res.render("blogList", {title: "blog list", items: itemsToShow});
+    res.render("blogList", {title: "blog list", items: itemsToShow, pageNum: pageNum-1});
 }
 
-module.export.blogPageCtrl = function(req, res) {
-    res.render("blogPage", {item: blogs[req.params.num]});
+module.exports.blogPageCtrl = function(req, res) {
+    res.render("blogPage", {title: blogs[req.params.num].title, items: blogs[req.params.num]});
 }
 
-module.export.resumeCtrl = function(req, res) {
-    
+module.exports.resumeCtrl = function(req, res) {
+    res.send("This is where the resume will be shown");
 }
 
 // ****************** The back end *************************
 
-module.export.newBlogCtrl = function(req, res) {
-    
+module.exports.newBlogCtrl = function(req, res) {
+    res.render("")
 }
 
-module.export.editBlogCtrl = function(req, res) {
-    
+module.exports.editBlogCtrl = function(req, res) {
+    res.send("This is where a new blog post will be edited");
 }
 
-module.export.editHomeCtrl = function(req, res) {
-    
+module.exports.editHomeCtrl = function(req, res) {
+    res.send("This is where the content on the home page will be edited");
 }
 
-module.export.adminBlogList Ctrl = function(req, res) {
-    
+module.exports.adminBlogListCtrl = function(req, res) {
+    res.send("The is where the list of blog posts will be listed on the home page");
 }
 
 
