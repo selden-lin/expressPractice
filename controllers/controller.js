@@ -39,13 +39,7 @@ module.exports.editBlogCtrl = function(req, res) {
 }
 
 module.exports.editHomeCtrl = function(req, res) {
-    var editAwardsHandler = function(event) {
-        console.log(event);
-    }
-    var handlers = {
-        "awards": editAwardsHandler
-    }
-    res.render("adminEditHome", {title: "Editing the home page", items: home, handlers: handlers});
+    res.render("adminEditHome", {title: "Editing the home page", items: home});
 }
 
 module.exports.adminBlogListCtrl = function(req, res) {

@@ -1,0 +1,3 @@
+var skillsHandler = function(id) {
+    
+}

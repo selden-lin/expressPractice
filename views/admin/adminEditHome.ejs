@@ -49,14 +49,22 @@
                             <td><%= items.awards[x].year %></td>
                             <td><%= items.awards[x].title %></td>
                             <td><%= items.awards[x].description %></td>
-                            <td><input onclick='<%= handlers.awards() %>' type="button" class="adminEditField btn btn-primary" value="edit"></td>
+                            <td><input id="admin-award-<%= x %>" type="button" class="adminEditField btn btn-primary" value="edit"></td>
+                            <script src="/js/handlers/awards.js"></script>
+                            <script>
+                                awardHandler("<%= "admin-award-"+x %>");
+                            </script>
                         </tr>
                         <% } %>
                     </table>
                     <!-- Is hidden at first  -->
-                    <div class="form-group" style="display: none">
-                        <label for="awards">Enter text</label>
-                        <input type="text" class="form-control" id="awards" name="awards" value="<%= items.awards %>">
+                    <div class="form-group" id="editAwardsForm" style="display: none">
+                        <label for="awards-title">Title</label>
+                        <input type="text" class="form-control" id="awards-title" name="awards-title">
+                        <label for="awards-description">Description</label>
+                        <input type="text" class="form-control" id="awards-description" name="awards-description">
+                        <label for="awards-year">Year</label>
+                        <input type="text" class="form-control" id="awards-year" name="awards-year">
                     </div>
                 </form>
             </div>
@@ -83,15 +91,31 @@
                             <td><%= items.volunteering[x].end %></td>
                             <td><%= items.volunteering[x].association %></td>
                             <td><%= items.volunteering[x].position %></td>
-                            <td><input class="adminEditField" type="button" class="btn btn-primary" value="edit"></td>
+                            <td><input id="admin-volunteering-<%= x %>" type="button" class="adminEditField btn btn-primary" value="edit"></td>
+                            <script src="/js/handlers/volunteering.js"></script>
+                            <script>
+                                volunteerHandler("<%= "admin-volunteering-"+x %>");
+                            </script>
                         </tr>
                         <% } %>
                     </table>
                     
                     <!-- Is hidden at first  -->
-                    <div class="form-group" style="display: none">
-                        <label for="awards">Enter text</label>
-                        <input type="text" class="form-control" id="volunteering" name="volunteering" value="<%= items.volunteering %>">
+                    <div class="form-group" id="editVolunteeringForm" style="display: none">
+                        <label for="volunteering-location">Location</label>
+                        <input type="text" class="form-control" id="volunteering-location" name="volunteering-location">
+                        <label for="volunteering-start">Start</label>
+                        <input type="text" class="form-control" id="volunteering-description" name="volunteering-start">
+                        <label for="volunteering-end">End</label>
+                        <input type="text" class="form-control" id="volunteering-end" name="volunteering-end">
+                        <label for="volunteering-association">Association</label>
+                        <input type="text" class="form-control" id="volunteering-association" name="volunteering-association">
+                        <label for="volunteering-position">Position</label>
+                        <input type="text" class="form-control" id="volunteering-position" name="volunteering-position">
+                        
+                        <!----- figure how this bullet point thing for the description -->
+                        <label for="volunteering-description">Description</label>
+                        <input type="text" class="form-control" id="volunteering-description" name="volunteering-description">
                     </div>
                 </form>
             </div>
@@ -117,15 +141,31 @@
                             <td><%= items.leadership[x].end %></td>
                             <td><%= items.leadership[x].association %></td>
                             <td><%= items.leadership[x].position %></td>
-                            <td><input class="adminEditField" type="button" class="btn btn-primary" value="edit"></td>
+                            <td><input id="admin-leadership-<%= x %>" class="adminEditField" type="button" class="btn btn-primary" value="edit"></td>
+                            <script src="/js/handlers/leadership.js"></script>
+                            <script>
+                                leadershipHandler("<%= "admin-leadership-"+x %>");
+                            </script>
                         </tr>
                         <% } %>
                     </table>
                     
                     <!-- Is hidden at first  -->
-                    <div class="form-group" style="display: none">
-                        <label for="title">Enter text</label>
-                        <input type="text" class="form-control" id="leadership" name="leadership" value="<%= items.leadership %>">
+                    <div class="form-group" id="editLeadershipForm" style="display: none">
+                        <label for="leadership-location">Location</label>
+                        <input type="text" class="form-control" id="leadership-location" name="leadership-location">
+                        <label for="leadership-location">Start</label>
+                        <input type="text" class="form-control" id="leadership-location" name="leadership-location">
+                        <label for="leadership-location">End</label>
+                        <input type="text" class="form-control" id="leadership-location" name="leadership-location">
+                        <label for="leadership-location">Association</label>
+                        <input type="text" class="form-control" id="leadership-location" name="leadership-location">
+                        <label for="leadership-location">Position</label>
+                        <input type="text" class="form-control" id="leadership-location" name="leadership-location">
+                        
+                        <!----- figure how this bullet point thing for the description -->
+                        <label for="leadership-description">Description</label>
+                        <input type="text" class="form-control" id="leadership-description" name="leadership-description">
                     </div>
                 </form>
             </div>
@@ -145,15 +185,21 @@
                         <tr>
                             <td><%= items.skillsAndInterests[x].title %></td>
                             <td><%= items.skillsAndInterests[x].items.toString() %></td>
-                            <td><input class="adminEditField" type="button" class="btn btn-primary" value="edit"></td>
+                            <td><input id="admin-skills-<%= x %>" class="adminEditField" type="button" class="btn btn-primary" value="edit"></td>
                         </tr>
+                        <script src="/js/handlers/skills.js"></script>
+                        <script>
+                            skillsHandler("<%= "admin-skills-"+x %>");
+                        </script>
                         <% } %>
                     </table>
                     
                     <!-- Is hidden at first  -->
                     <div class="form-group" style="display: none">
-                        <label for="title">Enter text</label>
-                        <input type="text" class="form-control" id="skills" name="skills" value="<%= items.skillsAndInterests %>">
+                        <label for="skills-title">Title</label>
+                        <input type="text" class="form-control" id="skills-title" name="skills-title">
+                        <label for="skills-items">Items</label>
+                        <input type="text" class="form-control" id="skills-items    " name="skills-items">
                     </div>
                 </form>
             </div>
