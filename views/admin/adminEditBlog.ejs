@@ -4,7 +4,23 @@
 <body>
     <%- include adminNav.ejs %>
     <div class="container">
+        <h1>Editing blog number <%= num %></h1>
         
+        <form>
+            <div class="form-group">
+                <label for="editBlogTitle">Edit Title</label>
+                <input class="form-control" type="text" id="editBlogTitle" name="editBlogTitle">
+                <label for="">Edit Date</label>
+                <input class="form-control" type="text" id="editBlogDate" name="editBlogDate">
+                <label for="">Edit Description</label>
+                <input class="form-control" type="text" id="editBlogDescription" name="editBlogDescription">
+                <label for="">Edit Content</label>
+                <input class="form-control" type="text" id="editBlogContent" name="editBlogContent">
+                <label for="">Edit Picture URL</label>
+                <input class="form-control" type="text" id="editBlogPic" name="editBlogPic">
+                <input type="button" class="form-control btn btn-primary" value="Submit">
+            </div>
+        </form>
     </div>
 </body>
 </html>

@@ -1,23 +1,22 @@
-var blogsObj = require("../blog.json");
+var blogs = require("../blog.json").blogs;
 var home = require("../home.json");
-var blogs = blogsObj.blogs;
 var pageSize = 10;
 
 
 // ****************** The front end *************************
 
 module.exports.homeCtrl = function (req, res) {
-    res.render("home", {title: "home"});
+    res.render("home", {title: "home", items: home});
 }
 
 module.exports.blogListCtrl = function(req, res) {
     var pageNum = req.params.num;
-    var maxPages = Math.floor(blogs.length/pageSize);
+    var maxPages = Math.floor(blogs.length/pageSize)-1;
     if (pageNum > maxPages) {
         pageNum = maxPages;
     }
-    var itemsToShow = blogs.slice(10*(pageNum-1), 10*pageNum);
-    res.render("blogList", {title: "blog list", items: itemsToShow, pageNum: pageNum-1});
+    var itemsToShow = blogs.slice(10*pageNum, 10*(pageNum+1));
+    res.render("blogList", {title: "blog list", items: itemsToShow, pageNum: pageNum});
 }
 
 module.exports.blogPageCtrl = function(req, res) {
@@ -35,7 +34,7 @@ module.exports.newBlogCtrl = function(req, res) {
 }
 
 module.exports.editBlogCtrl = function(req, res) {
-    res.render("adminEditBlog", {title: "Edit a blog"});
+    res.render("adminEditBlog", {title: "Edit a blog", num: req.params.num});
 }
 
 module.exports.editHomeCtrl = function(req, res) {
@@ -43,7 +42,13 @@ module.exports.editHomeCtrl = function(req, res) {
 }
 
 module.exports.adminBlogListCtrl = function(req, res) {
-    res.render("adminListBlog", {title: "List of all blog posts"});
+    var pageNum = req.params.num;
+    var maxPages = Math.floor(blogs.length/pageSize);
+    if (pageNum > maxPages) {
+        res.redirect("/admin/listBlog/"+maxPages);
+    }
+    var itemsToShow = blogs.slice(10*pageNum, 10*(pageNum+1));
+    res.render("adminListBlog", {title: "admin blog list", items: itemsToShow, pageNum: pageNum});
 }
 
 
