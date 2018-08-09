@@ -29,27 +29,27 @@ body {
     text-align: center;
     width: 100%;
     height: 50px;
-    padding: 10px;
+    padding: 20px;
     display: inline-block;
 }
 
 .nav-cell {
     height: 100%;
     display: inline-block;
-    font-size: 17pt;
+    font-size: 13pt;
     
 }
 
 .nav-cell::after {
     content: "/";
     color: white;
-    margin: 10px;
+    margin: 20px;
 }
 
 .nav-cell-end {
     height: 100%;
     display: inline-block;
-    font-size: 17pt;
+    font-size: 13pt;
 }
 
 .nav-link:link, .nav-link:visited, .nav-link:active {
@@ -65,16 +65,16 @@ body {
 .nav-link:before {
     content: "";
     position: absolute;
-    height: 3px;
+    height: 2px;
     width: 100%;
-    bottom: -5px;
+    bottom: -10px;
     left: 0;
     background-color: white;
     visibility: hidden;
     -webkit-transform: scaleX(0);
     transform: scaleX(0);
     -webkit-transition: all 0.3s ease-in-out 0s;
-    transition: all 0.3s ease-in-out 0s;
+    transition: all 0.2s ease-in-out 0s;
 }
 
 .nav-link:hover:before {
