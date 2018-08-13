@@ -22,7 +22,6 @@ function docScroll() {
     var exp = document.getElementsByClassName("exp-cell");
    
     if(document.body.scrollTop >= experience.offsetTop-400) {
-         console.log("asd");
         for(var x=0;x<exp.length;x++) {
             exp[x].classList.add("exp-flip");
         }

@@ -25,22 +25,30 @@
         
         <div id="experience" class="row">
             <h2 class="text-center"><span class="section-title-black">EXPERIENCE</span></h2>
-            <div class="exp-cell col-md-4">
-                <div class="exp-box">
-                    <div class="exp-content">
-                        <div class="exp-pic glyphicon glyphicon-heart"></div>
-                        <div class="exp-content-text">Coordinated medical missions and events for the organization</div>
-                    </div>
-                    <div class="exp-title">
-                        <h3>GMMA Canada</h3>
-                        <p>VP Events</p>
-                        <p>September 2016 - present</p>
+            
+            <% for(var x=0;x<items.experience.length;x++) { %>
+                
+                <div class="exp-cell <%= items.experience[x].width %>">
+                    <div class="exp-box">
+                        <div class="exp-content">
+                            <div class="exp-pic <%= items.experience[x].icon %>"></div>
+                            <div class="exp-content-text"><%= items.experience[x].description %></div>
+                        </div>
+                        <div class="exp-title">
+                            <h3><%= items.experience[x].association %></h3>
+                            <p><%= items.experience[x].position %></p>
+                            <p><%= items.experience[x].start +" - "+ items.experience[x].end %></p>
+                        </div>
                     </div>
                 </div>
-            </div>
             
+            <% } %>
+        
         </div>
         
+        <div id="awards" class="row">
+        
+        </div>
     </div>
     
     

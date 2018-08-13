@@ -9,15 +9,15 @@
         },
         {
             "year": 2018,
-            "title": "Award of excellence",
+            "title": "Award of ex qcellence",
             "description": "Given to students with an average above 80%"
         }
     ],
     "volunteering": [
         {
             "location": "London, ON",
-            "start": "Today",
-            "end": "Tomorrow",
+            "start": [3,2017],
+            "end": ["present"],
             "association": "VON Canada (Blood Pressure Clinic)",
             "position": "Student Volunteer",
             "description": [
@@ -34,7 +34,9 @@
             "position": "VP events",
             "description": [
                 "Coordinated medical missions and events for the organization"
-            ]
+            ],
+            "icon": "fas fa-file-medical",
+            "width": ""
         },
         {
             "location": "London, ON",
@@ -44,7 +46,9 @@
             "position": "VP events",
             "description": [
                 "Coordinated medical missions and events for the organization"
-            ]
+            ],
+            "icon": "fas fa-graduation-cap",
+            "width": ""
         }
     ],
     "skillsAndInterests": [

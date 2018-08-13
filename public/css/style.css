@@ -260,7 +260,7 @@ body {
 .exp-content {
     height: 250px;
     width: 100%;
-    font-size: 150pt;
+    font-size: 100pt;
     text-align: center;
     border-bottom: #d9d9d9 0.1px solid;
     position: relative;
@@ -271,7 +271,7 @@ body {
 }
 
 .exp-pic {
-    margin-top: 20px;
+    margin-top: 50px;
 }
 
 .exp-content-text {
@@ -290,11 +290,12 @@ body {
 
 .exp-title {
     text-align: center;
-    height: 80px;
+    height: 110px;
 }
 
 .exp-title h3 {
     margin: 0px;
+    font-weight: bold;
 }
 
 .exp-title p {

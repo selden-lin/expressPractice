@@ -1,11 +1,44 @@
 var blogs = require("../blog.json").blogs;
 var home = require("../home.json");
 var pageSize = 10;
-
+var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
 // ****************** The front end *************************
 
 module.exports.homeCtrl = function (req, res) {
+    var exp = home.experience;
+    var count = 0;
+    var currWidth = "";
+    for(var x=0;x<exp.length;x++) {
+        if(typeof exp[x].start == "string") {
+            break;
+        }
+        exp[x].start = months[exp[x].start[0]]+" "+exp[x].start[1];
+        if(exp[x].end[0] != "present") {
+            exp[x].end = months[exp[x].end[0]]+" "+exp[x].end[1];
+        } else {
+            exp[x].end = "present";
+        }
+        
+        if(count == 0) {
+            if(exp.length - x >= 3) {
+                currWidth = "col-md-4";
+            } else if(exp.length - x == 2) {
+                currWidth = "col-md-offset-2 col-md-4";
+            } else {
+                currWidth = "col-md-offset-4 col-md-4";
+            } 
+        } else if(count == 1) {
+            if(currWidth == "col-md-offset-2 col-md-4") {
+                currWidth = "col-md-4";
+            }
+        }
+        exp[x].width = currWidth;
+        count++;
+    }
+    
+    home.experience = exp;
+    
     res.render("home", {title: "home", items: home});
 }
 
