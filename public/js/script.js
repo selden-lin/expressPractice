@@ -1,30 +1,45 @@
+var word = "";
+var navHold = null;
+var expHit = 0;
+var awardHit = 0;
+
 (function () {
     drawWelcome();
     window.onresize = drawWelcome;
 
-    var navHome = document.getElementById("nav-home");
-    navHome.onclick = smoothScroll("welcome");
-
-    var navAbout = document.getElementById("nav-about");
-    navAbout.onclick = smoothScroll("about");
+    var navItems = document.getElementsByClassName("nav-link"); 
+    for(var x=0;x<navItems.length-2;x++) {
+        word = navItems[x].id.slice(4);
+        navItems[x].onclick = smoothScroll(word);
+    }
     
-    var navExperience = document.getElementById("nav-experience");
-    navExperience.onclick = smoothScroll("experience");
     
     // When the user scrolls to the experience section, the cards flip
     window.onscroll = docScroll;
     
 })();
 
-
 function docScroll() {
+    // flipping the exp cards on scroll
     var experience = document.getElementById("experience");
     var exp = document.getElementsByClassName("exp-cell");
    
-    if(document.body.scrollTop >= experience.offsetTop-400) {
+    if(expHit == 0 && document.body.scrollTop >= experience.offsetTop-400) {
         for(var x=0;x<exp.length;x++) {
             exp[x].classList.add("exp-flip");
         }
+        expHit = 1;
+    }
+    
+    //  animation of the award list on scroll
+    var awards = document.getElementById("awards");
+    var items = document.getElementsByClassName("award-row");
+    
+    if(awardHit == 0 && document.body.scrollTop >= awards.offsetTop-400) {
+        for(var x=0;x<items.length;x++) {
+            items[x].classList.add("award-animate");
+        }
+        awardHit = 1;
     }
 }
 

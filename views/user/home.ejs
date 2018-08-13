@@ -17,14 +17,14 @@
     </div>
     <div class="container">
         <div id="about" class="row">
-            <h2 class="text-center"><span class="section-title-white">ABOUT</span></h2>
+            <h2 class="text-center"><span class="section-title-white"><span class="fas fa-info-circle title-icon"></span>ABOUT</span></h2>
             <div id="about-content">
                 <%= items.description %>
             </div>
         </div>
         
         <div id="experience" class="row">
-            <h2 class="text-center"><span class="section-title-black">EXPERIENCE</span></h2>
+            <h2 class="text-center"><span class="section-title-black"><span class="fas fa-briefcase title-icon"></span>EXPERIENCE</span></h2>
             
             <% for(var x=0;x<items.experience.length;x++) { %>
                 
@@ -47,7 +47,20 @@
         </div>
         
         <div id="awards" class="row">
-        
+            <h2 class="text-center"><span class="section-title-white"><span class="fas fa-trophy title-icon "></span>AWARDS</span></h2>
+            <br/><br/>
+            <% for(var x=0;x<items.awards.length;x++) { %>
+                <div class="award-row">
+                    <div class="award-img">
+                        <span class="fas fa-trophy"></span>
+                    </div>
+                    <div class="award-content">
+                        <h3><%= items.awards[x].title %></h3>
+                        <p class="award-date"><%= items.awards[x].year %></p>
+                        <p class="award-info"><%= items.awards[x].description %></p>
+                    </div>
+                </div>
+            <% } %>
         </div>
     </div>
     

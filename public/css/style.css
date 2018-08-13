@@ -4,6 +4,22 @@ body {
     font-family: 'Exo 2', sans-serif;
 }
 
+.title-icon {
+    margin: 10px;
+}
+
+.footer {
+    background-color: white;
+    height: 50px;
+    width: 100%;   
+}
+
+.footer p {
+    text-align: center;
+    font-size: 15pt;
+    padding: 10px;
+}
+
 /****************************** Bootstrap *******************************************/
 
 .center {
@@ -319,4 +335,68 @@ body {
 }
 
 
+/************************************ Awards ************************************/
+@keyframes awardslide {
+    from {right: 1000px;}
+    to {right: 0px;}
+}
 
+#awards {
+    background-color: #e0251f;
+    color: white;
+    position: relative;
+}
+
+.award-row {
+    position: relative;
+    width: 80%;
+    min-width: 600px;
+    margin: 30px 10%;
+    height: 100px;  
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    right: 10000px;
+}
+
+.award-row:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
+}
+
+.award-img {
+    width: 10%;
+    border: 1px solid white;
+    height: 100%;  
+    float: left;
+    text-align: center;
+    font-size: 200%;
+    padding-top: 4%;
+}
+
+.award-content {
+    width: 90%;
+    height: 100%;
+    border: 1px solid white;
+    display: inline-block;
+    position: relative;
+    padding-left: 20px;
+}
+
+.award-content h3{
+    position: absolute;
+    font-size: 20pt;
+}
+
+.award-date {
+    float: right;
+    margin: 30px;
+}
+
+.award-info {
+    position: absolute;
+    top: 60px;
+}   
+
+.award-animate {
+    animation-name: awardslide;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}

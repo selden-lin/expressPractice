@@ -43,6 +43,7 @@ module.exports.homeCtrl = function (req, res) {
 }
 
 module.exports.blogListCtrl = function(req, res) {
+    
     var pageNum = req.params.num;
     var maxPages = Math.floor(blogs.length/pageSize)-1;
     if (pageNum > maxPages) {
