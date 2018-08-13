@@ -122,7 +122,7 @@
         </div>
         <div class="panel panel-primary">
             <div class="panel-heading">
-                <h4>Leadership</h4>
+                <h4>Experience</h4>
             </div>
             <div class="panel-body">
                 <form action="" method="POST">
@@ -134,13 +134,13 @@
                             <th>Association</th>
                             <th>Position</th>
                         </tr>
-                        <% for(var x=0;x<items.leadership.length;x++) { %>
+                        <% for(var x=0;x<items.experience.length;x++) { %>
                         <tr>
-                            <td><%= items.leadership[x].location %></td>
-                            <td><%= items.leadership[x].start %></td>
-                            <td><%= items.leadership[x].end %></td>
-                            <td><%= items.leadership[x].association %></td>
-                            <td><%= items.leadership[x].position %></td>
+                            <td><%= items.experience[x].location %></td>
+                            <td><%= items.experience[x].start %></td>
+                            <td><%= items.experience[x].end %></td>
+                            <td><%= items.experience[x].association %></td>
+                            <td><%= items.experience[x].position %></td>
                             <td><input id="admin-leadership-<%= x %>" type="button" class="adminEditField btn btn-primary" value="edit"></td>
                             <script src="/js/handlers/leadership.js"></script>
                             <script>
