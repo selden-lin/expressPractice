@@ -4,27 +4,7 @@
 <body>
     <%- include blogNav.ejs %>
     <div class="container">
-        <h1 class="text-center">The blog items</h1>
-        <table class="table table-hover">
-            <tr>
-                <th>Title</th>
-                <th>date</th>
-                <th>Description</th>
-                <th>Content</th>
-                <th>Picture</th>
-                <th>Url</th>
-            </tr>
-        <% for(var x=0;x<items.length;x++) { %>
-            <tr>
-                <td><%= items[x].title %></td>
-                <td><%= items[x].date %></td>
-                <td><%= items[x].description %></td>
-                <td><%= items[x].content %></td>
-                <td><%= items[x].picture %></td>
-                <td><a href="/blogItem/<%= pageNum+x %>">/blogItem/<%= pageNum+x %></a></td>
-            </tr>
-        <% } %>
-        </table>
+        <div class="row"
     </div>
     <%- include blogListFooter.ejs %>
 </body>
