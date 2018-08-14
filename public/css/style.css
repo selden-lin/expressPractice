@@ -368,7 +368,7 @@ body {
     float: left;
     text-align: center;
     font-size: 200%;
-    padding-top: 4%;
+    padding-top: 3%;
 }
 
 .award-content {
@@ -400,3 +400,5 @@ body {
     animation-duration: 1s;
     animation-fill-mode: forwards;
 }
+
+/************************************** Blog Page ****************************************/
