@@ -5,10 +5,23 @@
     <%- include blogNav.ejs %>
     
     <div class="container">
-        <div class="blog-title"></div>
-        <div class=""></div>
+        <div id="blog-head">
+            <div id="blog-head-txt">
+                <h1 class="ml11">
+                    <span class="text-wrapper">
+                        <span class="line line1"></span>
+                        <% for(var x=0;x<title.length;x++) { %>
+                        <span class="letters"><%= title[x] %></span><br/>
+                        <% } %>
+                    </span>
+                </h1>
+            </div>
+        </div>
+        <div id="blog-content">
+            <%= items.content %>
+        </div>
     </div>
     
-    <%- include footer.ejs %>
+    <%- include blogFooter.ejs %>
 </body>
 </html>

@@ -3,7 +3,7 @@
             "title":"First post",
             "date": "Monday",
             "description": "This is the first blog post",
-            "content": "This is the first blog post",
+            "content": "This is the first blog post.",
             "picture": "pic.img"
 
         },
@@ -76,6 +76,6 @@
             "description": "This is another blog post",
             "content": "This is another blog post",
             "picture": "pic.img"
-        }   
+        }
     ]
 }

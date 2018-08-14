@@ -11,7 +11,7 @@ body {
 .footer {
     background-color: white;
     height: 50px;
-    width: 100%;   
+    width: 100%;
 }
 
 .footer p {
@@ -26,33 +26,37 @@ body {
     text-align: center;
     padding: 30px;
 }
+
 .container {
     padding: 0px;
-    margin:0px;
+    margin: 0px;
     width: 100%;
 }
+
 .col-md-6 {
-   /*    padding: 0px;
+    /*    padding: 0px;
     margin:0px;*/
 }
+
 .row {
-    padding:0px;
+    padding: 0px;
     margin: 0px;
     padding-bottom: 70px;
     overflow-x: hidden;
 }
 
 .row:last-of-type {
-    padding:0px;
+    padding: 0px;
     margin: 0px;
     margin-bottom: 0px;
 }
 
 .noOverflow {
-    overflow:hidden;
+    overflow: hidden;
 }
 
 /*******************************   The navbar   *************************************/
+
 .nav-container {
     z-index: 20;
     width: 100%;
@@ -84,7 +88,7 @@ body {
     height: 100%;
     display: inline-block;
     font-size: 13pt;
-    
+
 }
 
 .nav-cell::after {
@@ -99,7 +103,9 @@ body {
     font-size: 13pt;
 }
 
-.nav-link:link, .nav-link:visited, .nav-link:active {
+.nav-link:link,
+.nav-link:visited,
+.nav-link:active {
     color: white;
     text-decoration: none;
     position: relative;
@@ -144,15 +150,19 @@ body {
 }
 
 @keyframes message {
-    from {top: -1000px;}
-    to {top: 100px;}
+    from {
+        top: -1000px;
+    }
+    to {
+        top: 100px;
+    }
 }
 
 #welcomeMessage {
-    position:absolute;
+    position: absolute;
     top: 100px;
-    left:0;
-    width:100%;
+    left: 0;
+    width: 100%;
     color: #4DB3B3;
     z-index: 10;
     text-align: center;
@@ -171,60 +181,61 @@ body {
 }
 
 /* ################## HEARTBEAT ANIMATION ########################### */
+
 .heart-rate {
     overflow: hidden;
-  width: 600px;
-  height: 300px;
-  position: relative;
+    width: 600px;
+    height: 300px;
+    position: relative;
 }
 
 .fade-in {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: #FFFFFF;
-  top: 0;
-  right: 0;
-  animation: heartRateIn 2.5s linear infinite;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #FFFFFF;
+    top: 0;
+    right: 0;
+    animation: heartRateIn 2.5s linear infinite;
 }
 
 .fade-out {
-  position: absolute;
-  width: 120%;
-  height: 100%;
-  top: 0;
-  left: -120%;
-  animation: heartRateOut 2.5s linear infinite;
-  background: rgba(255, 255, 255, 1);
-  background: -moz-linear-gradient(left, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0) 100%);
-  background: -webkit-linear-gradient(left, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0) 100%);
-  background: -o-linear-gradient(left, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0) 100%);
-  background: -ms-linear-gradient(left, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0) 100%);
-  background: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 80%, rgba(255, 255, 255, 0) 100%);
+    position: absolute;
+    width: 120%;
+    height: 100%;
+    top: 0;
+    left: -120%;
+    animation: heartRateOut 2.5s linear infinite;
+    background: rgba(255, 255, 255, 1);
+    background: -moz-linear-gradient(left, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0) 100%);
+    background: -webkit-linear-gradient(left, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0) 100%);
+    background: -o-linear-gradient(left, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0) 100%);
+    background: -ms-linear-gradient(left, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0) 100%);
+    background: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 80%, rgba(255, 255, 255, 0) 100%);
 }
 
 @keyframes heartRateIn {
-  0% {
-    width: 100%;
-  }
-  50% {
-    width: 0;
-  }
-  100% {
-    width: 0;
-  }
+    0% {
+        width: 100%;
+    }
+    50% {
+        width: 0;
+    }
+    100% {
+        width: 0;
+    }
 }
 
 @keyframes heartRateOut {
-  0% {
-    left: -100%;
-  }
-  30% {
-    left: -100%;
-  }
-  100% {
-    left: 0;
-  }
+    0% {
+        left: -100%;
+    }
+    30% {
+        left: -100%;
+    }
+    100% {
+        left: 0;
+    }
 }
 
 /********************************** Intro section **********************************************/
@@ -253,12 +264,13 @@ body {
 }
 
 /********************************** Experience section **********************************************/
+
 #experience {
     background-color: white;
 }
 
 .exp-cell {
-    height: 400px; 
+    height: 400px;
     margin-top: 50px;
     transform: rotateY(180deg);
 }
@@ -282,7 +294,7 @@ body {
     position: relative;
 }
 
-.exp-content:hover .exp-content-text{
+.exp-content:hover .exp-content-text {
     opacity: 1;
 }
 
@@ -324,8 +336,12 @@ body {
 }
 
 @keyframes expFlip {
-    from { transform: rotateY(180deg); }
-    to { transform: rotateY(360deg); }
+    from {
+        transform: rotateY(180deg);
+    }
+    to {
+        transform: rotateY(360deg);
+    }
 }
 
 .exp-flip {
@@ -336,9 +352,14 @@ body {
 
 
 /************************************ Awards ************************************/
+
 @keyframes awardslide {
-    from {right: 1000px;}
-    to {right: 0px;}
+    from {
+        right: 1000px;
+    }
+    to {
+        right: 0px;
+    }
 }
 
 #awards {
@@ -352,7 +373,7 @@ body {
     width: 80%;
     min-width: 600px;
     margin: 30px 10%;
-    height: 100px;  
+    height: 100px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     right: 10000px;
 }
@@ -364,7 +385,7 @@ body {
 .award-img {
     width: 10%;
     border: 1px solid white;
-    height: 100%;  
+    height: 100%;
     float: left;
     text-align: center;
     font-size: 200%;
@@ -380,7 +401,7 @@ body {
     padding-left: 20px;
 }
 
-.award-content h3{
+.award-content h3 {
     position: absolute;
     font-size: 20pt;
 }
@@ -393,7 +414,7 @@ body {
 .award-info {
     position: absolute;
     top: 60px;
-}   
+}
 
 .award-animate {
     animation-name: awardslide;
@@ -401,4 +422,57 @@ body {
     animation-fill-mode: forwards;
 }
 
+/************************************** Blog title animation ******************************/
+
+.ml11 {
+    font-weight: 900;
+    font-size: 3.5em;
+}
+
+.ml11 .text-wrapper {
+    position: relative;
+    display: inline-block;
+    padding-top: 0.1em;
+    padding-right: 0.05em;
+    padding-bottom: 0.15em;
+}
+
+.ml11 .line {
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 3px;
+    background-color: #fff;
+    transform-origin: 0 50%;
+}
+
+.ml11 .line1 {
+    top: 0;
+    left: 0;
+}
+
+.ml11 .letter {
+    display: inline-block;
+    line-height: 1em;
+}
+
+
 /************************************** Blog Page ****************************************/
+
+#blog-head {
+    margin-top: 70px;
+    font-family: 'Permanent Marker', cursive;
+    text-align: center;
+}
+
+#blog-head-txt {
+    margin-top: 250px;
+}
+
+#blog-content {
+    font-family: 'Oswald', sans-serif;
+    width: 100%;
+    padding: 100px 400px 100px 400px;
+    font-size: 20pt;
+}

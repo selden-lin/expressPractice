@@ -54,7 +54,8 @@ module.exports.blogListCtrl = function(req, res) {
 }
 
 module.exports.blogPageCtrl = function(req, res) {
-    res.render("blogPage", {title: blogs[req.params.num].title, items: blogs[req.params.num]});
+    var words = blogs[req.params.num].title.split(" ");
+    res.render("blogPage", {title: blogs[req.params.num].title, items: blogs[req.params.num], title:words});
 }
 
 module.exports.resumeCtrl = function(req, res) {
