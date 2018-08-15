@@ -1,26 +1,22 @@
 <html>
 <%- include header.ejs %>
-
-<body>
-    <%- include adminNav.ejs %>
-    <div class="container">
-        <h1>New Blog</h1>
-        
-        <form>
-            <div class="form-group">
-                <label for="newBlogTitle">Title</label>
-                <input class="form-control" type="text" id="newBlogTitle" name="newBlogTitle">
-                <label for="">Date</label>
-                <input class="form-control" type="text" id="newBlogDate" name="newBlogDate">
-                <label for="">Description</label>
-                <input class="form-control" type="text" id="newBlogDescription" name="newBlogDescription">
-                <label for="">Content</label>
-                <input class="form-control" type="text" id="newBlogContent" name="newBlogContent">
-                <label for="">Picture URL</label>
-                <input class="form-control" type="text" id="newBlogPic" name="newBlogPic">
-                <input type="button" class="form-control btn btn-primary" value="Submit">
+    <body>
+        <%- include adminNav.ejs %>
+            <div class="container">
+                <h1>New Blog</h1>
+                <div class="form-group">
+                    <form action="" method="post">
+                        <label for="title">Title</label>
+                        <input class="form-control" type="text" id="newBlogTitle" name="title">
+                        <label for="">Date</label>
+                        <input class="form-control" type="text" id="newBlogDate" name="state">
+                        <label for="">Description</label>
+                        <input class="form-control" type="text" id="newBlogDescription" name="description">
+                        <label for="">Content</label>
+                        <input class="form-control" type="text" id="newBlogContent" name="content">
+                        <input type="submit" class="form-control btn btn-primary" value="Submit">
+                    </form>
+                </div>
             </div>
-        </form>
-    </div>
-</body>
+    </body>
 </html>

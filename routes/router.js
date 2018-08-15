@@ -23,6 +23,10 @@ router.get("/resume", ctrl.resumeCtrl);
 
 // ************************  The back end part *************************
 
+// Default
+router.get("/admin", function(req, res) {
+    res.redirect("/admin/editHome");
+})
 
 // Add a new blog item
 router.get("/admin/newBlog", ctrl.newBlogCtrl);
@@ -44,5 +48,16 @@ router.get("/admin/listBlog/:num", ctrl.adminBlogListCtrl);
 
 // ************************  The REST api *************************
 
+// Add a new blog
+router.post("/admin/newBlog", ctrl.postNewBlog);
+
+// Send changes for editing the home page
+router.post("/admin/editHome", ctrl.postEditHome);
+
+// Send changes for editing a blog
+router.post("/admin/editBlog/:num", ctrl.postEditBlog);
+
+// Deleting blog post
+router.delete("/admin/editBlog/:num", ctrl.deleteEditBlog);
 
 module.exports = router;
