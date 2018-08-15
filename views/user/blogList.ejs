@@ -4,8 +4,42 @@
 <body>
     <%- include blogNav.ejs %>
     <div class="container">
-        <div class="row"
+        <div id="blog-list-box">
+            <% for(var x=0;x<items.length;x++) { %>
+            <% if(x%3 == 0) { %>
+            <div class="row">
+            <% } %>
+            <div class="blog-list-cell col-md-4">
+                <a href="/blogItem/<%= pageNum-1+x %>" class="blog-list-link">
+                    <div class="blog-list-title-box">
+                        <p class="blog-list-title-txt"><%= items[x].title %></p>
+                        <p class="blog-list-date"><%= items[x].date %></p>
+                    </div>
+                    
+                    <div class="blog-list-desc">
+                        <p><%= items[x].description %></p>
+                    </div>
+                </a>
+            </div>
+            <% if((x+1)%3 == 0 || x == items.length-1) { %>
+            </div>
+            <% }%>
+        <% } %>
+        <div id="page-bar" class="row">
+            <% for(var x=1;x<=pages;x++) { %>
+                <% if(pageNum == x) { %>
+                <a href="/blog/<%= x %>" class="page-bar-active"><%= x %></a>
+                <% } %>
+                <% if(pageNum != x) { %>
+                <a href="/blog/<%= x %>" class="page-bar-cell"><%= x %></a>
+                <% } %>
+            <% } %>
+        </div>
+        <%- include blogListFooter.ejs %>
+        </div>
+        
     </div>
-    <%- include blogListFooter.ejs %>
+    
+    
 </body>
 </html>

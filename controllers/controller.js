@@ -45,12 +45,12 @@ module.exports.homeCtrl = function (req, res) {
 module.exports.blogListCtrl = function(req, res) {
     
     var pageNum = req.params.num;
-    var maxPages = Math.floor(blogs.length/pageSize)-1;
+    var maxPages = Math.ceil(blogs.length/pageSize);
     if (pageNum > maxPages) {
         pageNum = maxPages;
     }
-    var itemsToShow = blogs.slice(10*pageNum, 10*(pageNum+1));
-    res.render("blogList", {title: "blog list", items: itemsToShow, pageNum: pageNum});
+    var itemsToShow = blogs.slice(10*(pageNum-1), 10*(pageNum));
+    res.render("blogList", {title: "blog list", items: itemsToShow, pageNum: pageNum, pages: maxPages});
 }
 
 module.exports.blogPageCtrl = function(req, res) {

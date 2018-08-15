@@ -4,7 +4,7 @@
 <body>
     <%- include nav.ejs %>
     
-    <div id="welcome" class="row">
+    <div id="welcome" class="row row-1">
         <div id="heart-div" class="heart-rate">
             <canvas id="myCanvas"></canvas>
             <div class="fade-in"></div>
@@ -16,14 +16,14 @@
         </div>
     </div>
     <div class="container">
-        <div id="about" class="row">
+        <div id="about" class="row row-1">
             <h2 class="text-center"><span class="section-title-white"><span class="fas fa-info-circle title-icon"></span>ABOUT</span></h2>
             <div id="about-content">
                 <%= items.description %>
             </div>
         </div>
         
-        <div id="experience" class="row">
+        <div id="experience" class="row row-1">
             <h2 class="text-center"><span class="section-title-black"><span class="fas fa-briefcase title-icon"></span>EXPERIENCE</span></h2>
             
             <% for(var x=0;x<items.experience.length;x++) { %>
@@ -46,7 +46,7 @@
         
         </div>
         
-        <div id="awards" class="row">
+        <div id="awards" class="row row-1">
             <h2 class="text-center"><span class="section-title-white"><span class="fas fa-trophy title-icon "></span>AWARDS</span></h2>
             <br/><br/>
             <% for(var x=0;x<items.awards.length;x++) { %>

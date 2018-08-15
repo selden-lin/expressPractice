@@ -38,14 +38,15 @@ body {
     margin:0px;*/
 }
 
-.row {
+.row-1 {
     padding: 0px;
     margin: 0px;
     padding-bottom: 70px;
     overflow-x: hidden;
 }
 
-.row:last-of-type {
+
+.row-1:last-of-type {
     padding: 0px;
     margin: 0px;
     margin-bottom: 0px;
@@ -473,6 +474,103 @@ body {
 #blog-content {
     font-family: 'Oswald', sans-serif;
     width: 100%;
-    padding: 100px 400px 100px 400px;
+    padding: 100px 100px 100px 100px;
     font-size: 20pt;
 }
+
+/*************************************** Blog list page **************************************/
+.blog-list-cell {
+    border: 0.5px solid #cccccc;
+    position: relative;
+    padding: 0px;
+}
+
+#blog-list-box {
+    margin-top: 70px;
+    height: 100%;
+}
+    
+.blog-list-link:link,.blog-list-link:active,.blog-list-link:visited {
+    text-decoration: none;
+    color: black;
+    line-height: 0px;
+    
+}
+
+.blog-list-title-box {
+    position: absolute;
+    top: 30%;
+    width: 100%;    
+    text-align: center;
+    margin: 0;
+    line-height: normal;
+}
+
+.blog-list-date {
+    font-size: 15pt;
+    font-family: 'Oswald', sans-serif;
+}
+
+.blog-list-title-txt {
+    font-family: 'Permanent Marker', cursive;
+    padding: 20px;
+    font-size: 40pt;
+}
+
+.blog-list-desc {
+    position: absolute;
+    text-align: center;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    font-size: 20pt;
+    color: white;
+    background-color: rgba(180,30,24, 0.95);
+    font-family: 'Oswald', sans-serif;
+    transition: opacity 0.4s;
+}
+
+.blog-list-desc > p {
+    position: absolute;
+    top: 20%;
+    margin: 0px;
+    padding: 10px;
+    text-align:center;
+    width: inherit;
+    height: 75%;
+    overflow: hidden;
+    line-height: normal;
+}
+
+.blog-list-link:hover .blog-list-desc{
+    opacity: 1;
+}
+
+#page-bar {
+    text-align: center;
+    height: 100px;
+    padding: 30px;
+}
+
+.page-bar-cell:active, .page-bar-cell:link, .page-bar-cell:visited {
+    padding: 15px;
+    text-decoration: none;
+    background-color: rgb(180, 30, 24);
+    display: inline-block;
+    color: white;
+}
+
+.page-bar-cell:hover{
+    background-color: #e33b35;
+}
+
+.page-bar-active:active, .page-bar-active:link, .page-bar-active:visited {
+    padding: 15px;
+    text-decoration: none;
+    display: inline-block;
+    color: white;
+    background-color: #e33b35;
+}
+
+

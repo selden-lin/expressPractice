@@ -73,7 +73,7 @@ function drawWelcome() {
     var width = window.innerWidth;
 
     var welcome = document.getElementById("welcome");
-    var rows = document.getElementsByClassName("row");
+    var rows = document.getElementsByClassName("row-1");
 
     if (height > 400) {
         wm.style.fontSize = height * 0.20 + "px";
