@@ -8,8 +8,14 @@ var awardHandler = function(id) {
         
         var id = event.target.id;
         var words = id.split("-");
+        var word = words[2];
         
         // Will get the data using REST api later
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if(this.readyState == 4 && this.status == 200)
+        }
+        
         var year = 2018;
         var title = "Honour roll";
         var description = "Hi";

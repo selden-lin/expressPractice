@@ -48,6 +48,9 @@ router.get("/admin/listBlog/:num", ctrl.adminBlogListCtrl);
 
 // ************************  The REST api *************************
 
+// Get the home info
+router.get("/home.json", ctrl.GetHomeData);
+
 // Add a new blog
 router.post("/admin/newBlog", ctrl.postNewBlog);
 

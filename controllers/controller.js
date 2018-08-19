@@ -1,5 +1,6 @@
 var blogs = require("../blog.json").blogs;
 var home = require("../home.json");
+var fs = require("fs");
 
 var pageSize = 10;
 var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -90,7 +91,13 @@ module.exports.adminBlogListCtrl = function(req, res) {
 
 // ****************** The REST api *************************
 
+module.exports.getHomeData = function(req, res) {
+    res.setHeader('Content-Type', 'application/json');
+    res.send(home);
+}
+
 module.exports.postEditHome = function(req, res) {
+    res.redirect("/admin/editHome");
     
 };
 
@@ -99,7 +106,9 @@ module.exports.postEditBlog = function(req, res) {
 };
 
 module.exports.postNewBlog = function(req, res) {
-    console.log(JSON.stringify(req.body));
+//    fs.readFile(__dirname+"/../home.json","utf-8", function(err, data) {
+//        console.log(data);    
+//    });
     res.redirect("/admin/newBlog");
 };
 

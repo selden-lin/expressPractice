@@ -4,40 +4,34 @@
 <body>
     <%- include adminNav.ejs %>
     <div class="container">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <h4>Title</h4>
-            </div>
-            <div class="panel-body">
-                <form action="" method="POST">
+        <form action="" method="POST">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h4>Title</h4>
+                </div>
+                <div class="panel-body">
                     <div class="form-group">
                         <label for="title">Enter text</label>
                         <input type="text" class="form-control" id="title" name="title" value="<%= items.title %>">
-                        <input type="button" value="submit" class="form-control">
                     </div>
-                </form>
+                </div>
             </div>
-        </div>
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <h4>Description</h4>
-            </div>
-            <div class="panel-body">
-                <form action="" method="POST">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h4>Description</h4>
+                </div>
+                <div class="panel-body">
                     <div class="form-group">
                         <label for="description">Enter text</label>
                         <input type="text" class="form-control" id="description" name="description" value="<%= items.description %>">
-                        <input type="button" value="submit" class="form-control">
                     </div>
-                </form>
+                </div>
             </div>
-        </div>
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <h4>Awards</h4>
-            </div>
-            <div class="panel-body">
-                <form action="" method="POST">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h4>Awards</h4>
+                </div>
+                <div class="panel-body">
                     <table class="table table-hover">
                         <tr>
                             <th>Year</th>
@@ -49,10 +43,10 @@
                             <td><%= items.awards[x].year %></td>
                             <td><%= items.awards[x].title %></td>
                             <td><%= items.awards[x].description %></td>
-                            <td><input id="admin-award-<%= x %>" type="button" class="adminEditField btn btn-primary" value="edit"></td>
+                            <td><input id="admin-award-<%= items.awards[x].id %>" type="button" class="adminEditField btn btn-primary" value="edit"></td>
                             <script src="/js/handlers/awards.js"></script>
                             <script>
-                                awardHandler("<%= "admin-award-"+x %>");
+                                awardHandler("<%= "admin-award-"+items.awards[x].id %>");
                             </script>
                         </tr>
                         <% } %>
@@ -66,15 +60,14 @@
                         <label for="awards-year">Year</label>
                         <input type="text" class="form-control" id="awards-year" name="awards-year">
                     </div>
-                </form>
+                </div>
             </div>
-        </div>
         <div class="panel panel-primary">
             <div class="panel-heading">
                 <h4>Volunteering</h4>
             </div>
             <div class="panel-body">
-                <form action="" method="POST">
+
                     
                     <table class="table table-hover">
                         <tr>
@@ -117,7 +110,6 @@
                         <label for="volunteering-description">Description</label>
                         <input type="text" class="form-control" id="volunteering-description" name="volunteering-description">
                     </div>
-                </form>
             </div>
         </div>
         <div class="panel panel-primary">
@@ -125,7 +117,6 @@
                 <h4>Experience</h4>
             </div>
             <div class="panel-body">
-                <form action="" method="POST">
                     <table class="table table-hover">
                         <tr>
                             <th>Location</th>
@@ -167,15 +158,13 @@
                         <label for="leadership-description">Description</label>
                         <input type="text" class="form-control" id="leadership-description" name="leadership-description">
                     </div>
-                </form>
             </div>
         </div>
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <h4>Skills</h4>
-            </div>
-            <div class="panel-body">
-                <form action="" method="POST">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h4>Skills</h4>
+                </div>
+                <div class="panel-body">
                     <table class="table table-hover">
                         <tr>
                             <th>Title</th>
@@ -193,7 +182,7 @@
                         </script>
                         <% } %>
                     </table>
-                    
+
                     <!-- Is hidden at first  -->
                     <div class="form-group" id="editSkillsForm" style="display: none">
                         <label for="skills-title">Title</label>
@@ -201,9 +190,10 @@
                         <label for="skills-items">Items</label>
                         <input type="text" class="form-control" id="skills-items" name="skills-items">
                     </div>
-                </form>
+                </div>
             </div>
-        </div>
+            <input type="button" value="submit" class="btn btn-success form-control">
+        </form>
     </div>
 </body>
 </html>
