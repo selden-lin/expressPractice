@@ -39,7 +39,7 @@ router.get("/admin/editHome", ctrl.editHomeCtrl);
 
 // List the blog items for updating
 router.get("/admin/listBlog", function(req, res) {
-    res.redirect("/admin/listBlog/0");
+    res.redirect("/admin/listBlog/1");
 });
 
 // List the blog items for updating
@@ -49,7 +49,7 @@ router.get("/admin/listBlog/:num", ctrl.adminBlogListCtrl);
 // ************************  The REST api *************************
 
 // Get the home info
-router.get("/home.json", ctrl.GetHomeData);
+router.get("/home.json", ctrl.getHomeData);
 
 // Add a new blog
 router.post("/admin/newBlog", ctrl.postNewBlog);

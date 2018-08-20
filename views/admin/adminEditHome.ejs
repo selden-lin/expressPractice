@@ -34,12 +34,15 @@
                 <div class="panel-body">
                     <table class="table table-hover">
                         <tr>
+                            <th>ID</th>
                             <th>Year</th>
                             <th>Title</th>
                             <th>Description</th>
+                            <th></th>
                         </tr>
                         <% for(var x=0;x<items.awards.length;x++) { %>
                         <tr>
+                            <td><%= items.awards[x].id %></td>
                             <td><%= items.awards[x].year %></td>
                             <td><%= items.awards[x].title %></td>
                             <td><%= items.awards[x].description %></td>
@@ -52,7 +55,9 @@
                         <% } %>
                     </table>
                     <!-- Is hidden at first  -->
-                    <div class="form-group" id="editAwardsForm" style="display: none">
+                    <div class="form-group" id="editAwardsForm" >
+                        <label for="awards-id">ID</label>
+                        <input type="text" class="form-control" id="awards-id" name="awards-id" >
                         <label for="awards-title">Title</label>
                         <input type="text" class="form-control" id="awards-title" name="awards-title">
                         <label for="awards-description">Description</label>
@@ -62,56 +67,7 @@
                     </div>
                 </div>
             </div>
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <h4>Volunteering</h4>
-            </div>
-            <div class="panel-body">
-
-                    
-                    <table class="table table-hover">
-                        <tr>
-                            <th>Location</th>
-                            <th>Start</th>
-                            <th>end</th>
-                            <th>Association</th>
-                            <th>Position</th>
-                        </tr>
-                        <% for(var x=0;x<items.volunteering.length;x++) { %>
-                        <tr>
-                            <td><%= items.volunteering[x].location %></td>
-                            <td><%= items.volunteering[x].start %></td>
-                            <td><%= items.volunteering[x].end %></td>
-                            <td><%= items.volunteering[x].association %></td>
-                            <td><%= items.volunteering[x].position %></td>
-                            <td><input id="admin-volunteering-<%= x %>" type="button" class="adminEditField btn btn-primary" value="edit"></td>
-                            <script src="/js/handlers/volunteering.js"></script>
-                            <script>
-                                volunteerHandler("<%= "admin-volunteering-"+x %>");
-                            </script>
-                        </tr>
-                        <% } %>
-                    </table>
-                    
-                    <!-- Is hidden at first  -->
-                    <div class="form-group" id="editVolunteeringForm" style="display: none">
-                        <label for="volunteering-location">Location</label>
-                        <input type="text" class="form-control" id="volunteering-location" name="volunteering-location">
-                        <label for="volunteering-start">Start</label>
-                        <input type="text" class="form-control" id="volunteering-start" name="volunteering-start">
-                        <label for="volunteering-end">End</label>
-                        <input type="text" class="form-control" id="volunteering-end" name="volunteering-end">
-                        <label for="volunteering-association">Association</label>
-                        <input type="text" class="form-control" id="volunteering-association" name="volunteering-association">
-                        <label for="volunteering-position">Position</label>
-                        <input type="text" class="form-control" id="volunteering-position" name="volunteering-position">
-                        
-                        <!----- figure how this bullet point thing for the description -->
-                        <label for="volunteering-description">Description</label>
-                        <input type="text" class="form-control" id="volunteering-description" name="volunteering-description">
-                    </div>
-            </div>
-        </div>
+        
         <div class="panel panel-primary">
             <div class="panel-heading">
                 <h4>Experience</h4>
@@ -119,30 +75,41 @@
             <div class="panel-body">
                     <table class="table table-hover">
                         <tr>
+                            <th>ID</th>
                             <th>Location</th>
                             <th>Start</th>
                             <th>end</th>
                             <th>Association</th>
                             <th>Position</th>
+                            <th>Description</th>
+                            <th>Icon</th>
+                            <th></th>
                         </tr>
                         <% for(var x=0;x<items.experience.length;x++) { %>
                         <tr>
+                            <td><%= items.experience[x].id %></td>
                             <td><%= items.experience[x].location %></td>
                             <td><%= items.experience[x].start %></td>
                             <td><%= items.experience[x].end %></td>
                             <td><%= items.experience[x].association %></td>
                             <td><%= items.experience[x].position %></td>
-                            <td><input id="admin-leadership-<%= x %>" type="button" class="adminEditField btn btn-primary" value="edit"></td>
-                            <script src="/js/handlers/leadership.js"></script>
+                            <td><%= items.experience[x].description %></td>
+                            <td><%= items.experience[x].icon %></td>
+                            <td><input id="admin-leadership-<%= items.experience[x].id %>" type="button" class="adminEditField btn btn-primary" value="edit"></td>
+                            <script src="/js/handlers/experience.js"></script>
                             <script>
-                                leadershipHandler("<%= "admin-leadership-"+x %>");
+                                leadershipHandler("<%= "admin-leadership-"+items.experience[x].id %>");
                             </script>
                         </tr>
                         <% } %>
                     </table>
                     
                     <!-- Is hidden at first  -->
-                    <div class="form-group" id="editLeadershipForm" style="display: none">
+                    <div class="form-group" id="editLeadershipForm" >
+                        <label for="experience-id">ID</label>
+                        <input type="text" class="form-control" id="experience-id" name="experience-id" >
+                        <label for="experience-icon">Icon</label>
+                        <input type="text" class="form-control" id="experience-icon" name="experience-icon">
                         <label for="leadership-location">Location</label>
                         <input type="text" class="form-control" id="leadership-location" name="leadership-location">
                         <label for="leadership-location">Start</label>
@@ -167,24 +134,29 @@
                 <div class="panel-body">
                     <table class="table table-hover">
                         <tr>
+                            <th>ID</th>
                             <th>Title</th>
                             <th>Items</th>
+                            <th></th>
                         </tr>
-                        <% for(var x=0;x<items.skillsAndInterests.length;x++) { %>
+                        <% for(var x=0;x<items.skills.length;x++) { %>
                         <tr>
-                            <td><%= items.skillsAndInterests[x].title %></td>
-                            <td><%= items.skillsAndInterests[x].items.toString() %></td>
-                            <td><input id="admin-skills-<%= x %>" type="button" class="adminEditField btn btn-primary" value="edit"></td>
+                            <td><%= items.skills[x].id %></td>
+                            <td><%= items.skills[x].title %></td>
+                            <td><%= items.skills[x].items.toString() %></td>
+                            <td><input id="admin-skills-<%= items.skills[x].id %>" type="button" class="adminEditField btn btn-primary" value="edit"></td>
                         </tr>
                         <script src="/js/handlers/skills.js"></script>
                         <script>
-                            skillsHandler("<%= "admin-skills-"+x %>");
+                            skillsHandler("<%= "admin-skills-"+items.skills[x].id %>");
                         </script>
                         <% } %>
                     </table>
 
                     <!-- Is hidden at first  -->
-                    <div class="form-group" id="editSkillsForm" style="display: none">
+                    <div class="form-group" id="editSkillsForm" >
+                        <label for="skills-title">ID</label>
+                        <input type="text" class="form-control" id="skills-id" name="skills-id" >
                         <label for="skills-title">Title</label>
                         <input type="text" class="form-control" id="skills-title" name="skills-title">
                         <label for="skills-items">Items</label>
@@ -192,7 +164,7 @@
                     </div>
                 </div>
             </div>
-            <input type="button" value="submit" class="btn btn-success form-control">
+            <input type="submit" value="submit" class="btn btn-success form-control">
         </form>
     </div>
 </body>

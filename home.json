@@ -1,64 +1,50 @@
 {
     "title": "Home page",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur viverra blandit nunc, vel aliquam libero porta a. Sed bibendum lacus id ullamcorper laoreet. Curabitur sit amet enim a nunc hendrerit efficitur eget quis purus. Nullam egestas maximus justo et consectetur. Aenean maximus, nulla sit amet efficitur vehicula, nunc est imperdiet sapien, non porttitor purus ex in odio. Ut mollis suscipit ipsum. Quisque non fringilla justo, eu aliquet massa. Aenean pulvinar nibh eget massa malesuada vehicula. Aliquam at molestie ex, a efficitur lectus. Integer non nisl mauris. Fusce ac urna sit amet dui rutrum tincidunt sed nec quam.\n\nPellentesque fringilla condimentum diam, nec tristique leo fermentum eu. Nulla ultrices eget ex tincidunt elementum. Nam consectetur imperdiet maximus. Nam sodales mauris ac vulputate venenatis. Nunc vitae magna tellus. Aenean ultricies gravida ullamcorper. Phasellus consectetur risus ut pharetra scelerisque. Nam id eros ac est consequat porta. Cras faucibus mollis felis, non sodales nulla fringilla at. Etiam porta lobortis lectus, ut tristique libero rutrum id. Duis facilisis ultrices congue. Nam cursus sodales justo, eget placerat justo porttitor vel. Aenean ullamcorper elit vel est interdum consequat. Quisque scelerisque pharetra sem, eleifend vestibulum libero ornare vitae. Duis sodales ultricies feugiat.",
-    "awards": [
-        {
-            "id": 1,
-            "year": 2018,
-            "title": "Honour roll",
-            "description": "Given to students with an average above 80%"
-        },
-        {
-            "id": 2,
-            "year": 2018,
-            "title": "Award of excellence",
-            "description": "Given to students with an average above 80%"
-        }
-    ],
-    "volunteering": [
-        {
-            "location": "London, ON",
-            "start": [3,2017],
-            "end": ["present"],
-            "association": "VON Canada (Blood Pressure Clinic)",
-            "position": "Student Volunteer",
-            "description": [
-                "Responsible for taking people's blood pressure"
-            ]
-        }
-    ],
-    "experience": [
-        {
-            "location": "London, ON",
-            "start": [9, 2016],
-            "end": ["present"],
-            "association": "GMMA",
-            "position": "VP events",
-            "description": [
-                "Coordinated medical missions and events for the organization"
-            ],
-            "icon": "fas fa-file-medical",
-            "width": ""
-        },
-        {
-            "location": "London, ON",
-            "start": [9, 2017],
-            "end": ["present"],
-            "association": "Student Offering Support Western",
-            "position": "VP events",
-            "description": [
-                "Coordinated medical missions and events for the organization"
-            ],
-            "icon": "fas fa-graduation-cap",
-            "width": ""
-        }
-    ],
-    "skillsAndInterests": [
-        {
-            "title": "Music interests",
-            "items": [
-                "Piano", "viola"
-            ]
-        }
-    ]
+    "description": "My name is Michael Lee",
+    "awards": [{
+        "id": 1,
+        "year": 2018,
+        "title": "Honour roll",
+        "description": "Given to students with an average above 80%"
+    }, {
+        "id": 2,
+        "year": 2018,
+        "title": "Award of excellence",
+        "description": "Given to students with an average above 80%"
+    }],
+    "experience": [{
+        "id": 1,
+        "location": "London, ON",
+        "start": "October 2016",
+        "end": "present",
+        "association": "GMMA",
+        "position": "VP events",
+        "description": "Coordinated medical missions and events for the organization",
+        "icon": "fas fa-file-medical",
+        "width": "col-md-4"
+    }, {
+        "id": 2,
+        "location": "London, ON",
+        "start": "October 2017",
+        "end": "present",
+        "association": "Student Offering Support Western",
+        "position": "VP events",
+        "description": "Coordinated medical missions and events for the organization",
+        "icon": "fas fa-graduation-cap",
+        "width": "col-md-4"
+    }, {
+        "id": "3",
+        "location": "London, ON",
+        "start": "July 2017",
+        "end": "present",
+        "association": "Lakshman Gunaratnam Nephgrology Laboratory, University Hospital",
+        "position": "RESEARCH ASSISTANT",
+        "icon": "fas fa-graduation-cap",
+        "description": "Researched with Dr. Gunaratnam’s nephrology lab to study the immune response of transplanted kidney"
+    }],
+    "skills": [{
+        "id": 1,
+        "title": "Music interests",
+        "items": ["Piano", "viola"]
+    }]
 }

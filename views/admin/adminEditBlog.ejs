@@ -3,24 +3,25 @@
 
 <body>
     <%- include adminNav.ejs %>
-    <div class="container">
+    <div class="container" style="padding: 30px;">
         <h1>Editing blog number <%= num %></h1>
-        
-        <form>
-            <div class="form-group">
+        <div class="form-group">
+            <form action="" method="POST">
                 <label for="editBlogTitle">Edit Title</label>
-                <input class="form-control" type="text" id="editBlogTitle" name="editBlogTitle">
+                <input class="form-control" type="text" id="editBlogTitle" name="title"
+                       value="<%= items.title %>">
                 <label for="">Edit Date</label>
-                <input class="form-control" type="text" id="editBlogDate" name="editBlogDate">
+                <input class="form-control" type="text" id="editBlogDate" name="date"
+                       value="<%= items.date %>">
                 <label for="">Edit Description</label>
-                <input class="form-control" type="text" id="editBlogDescription" name="editBlogDescription">
+                <input class="form-control" type="text" id="editBlogDescription" name="description"
+                       value="<%= items.description %>">
                 <label for="">Edit Content</label>
-                <input class="form-control" type="text" id="editBlogContent" name="editBlogContent">
-                <label for="">Edit Picture URL</label>
-                <input class="form-control" type="text" id="editBlogPic" name="editBlogPic">
-                <input type="button" class="form-control btn btn-primary" value="Submit">
-            </div>
-        </form>
+                <textarea class="form-control" rows="20" id="editBlogContent" name="content"><%= items.content %></textarea>
+                <input type="hidden" value="<%= num %>" name="index" />
+                <input type="submit" class="form-control btn btn-primary" value="Submit">
+            </form>
+        </div>
     </div>
 </body>
 </html>

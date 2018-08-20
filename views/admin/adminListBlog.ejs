@@ -3,28 +3,36 @@
     
 <body>
     <%- include adminNav.ejs %>
-    <div class="container">
-        <h1 class="text-center">The blog items</h1>
-        <table class="table table-hover">
-            <tr>
-                <th>Title</th>
-                <th>date</th>
-                <th>Description</th>
-                <th>Content</th>
-                <th>Picture</th>
-                <th>Url</th>
-            </tr>
-        <% for(var x=0;x<items.length;x++) { %>
-            <tr>
-                <td><%= items[x].title %></td>
-                <td><%= items[x].date %></td>
-                <td><%= items[x].description %></td>
-                <td><%= items[x].content %></td>
-                <td><%= items[x].picture %></td>
-                <td><a href="/admin/editBlog/<%= pageNum+x %>">/blogItem/<%= parseInt(pageNum+x) %></a></td>
-            </tr>
-        <% } %>
-        </table>
+    <div class="container" style="padding: 30px">
+        <div class="row">
+            <h1 class="text-center">The blog items</h1>
+            <table class="table table-hover">
+                <tr>
+                    <th>Title</th>
+                    <th>date</th>
+                    <th>Description</th>
+                    <th>Url</th>
+                </tr>
+            <% for(var x=0;x<items.length;x++) { %>
+                <tr>
+                    <td><%= items[x].title %></td>
+                    <td><%= items[x].date %></td>
+                    <td><%= items[x].description %></td>
+                    <td><a href="/admin/editBlog/<%= 9*(pageNum-1)+x %>">/blogItem/<%= 9*[parseInt(pageNum)-1]+x %></a></td>
+                </tr>  
+            <% } %>
+            </table>
+        </div>
+        <div id="page-bar" class="row">
+            <% for(var x=1;x<=pages;x++) { %>
+                <% if(pageNum == x) { %>
+                <a href="/admin/listBlog/<%= x %>" class="page-bar-active"><%= x %></a>
+                <% } %>
+                <% if(pageNum != x) { %>
+                <a href="/admin/listBlog/<%= x %>" class="page-bar-cell"><%= x %></a>
+                <% } %>
+            <% } %>
+        </div>
     </div>
 </body>
 </html>

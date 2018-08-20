@@ -2,18 +2,18 @@
 <%- include header.ejs %>
     <body>
         <%- include adminNav.ejs %>
-            <div class="container">
+            <div class="container" style="padding: 30px;">
                 <h1>New Blog</h1>
                 <div class="form-group">
                     <form action="" method="post">
                         <label for="title">Title</label>
-                        <input class="form-control" type="text" id="newBlogTitle" name="title">
+                        <input class="form-control" type="text" id="newBlogTitle" name="title" required>
                         <label for="">Date</label>
-                        <input class="form-control" type="text" id="newBlogDate" name="state">
+                        <input class="form-control" type="text" id="newBlogDate" name="date" required>
                         <label for="">Description</label>
-                        <input class="form-control" type="text" id="newBlogDescription" name="description">
+                        <input class="form-control" type="text" id="newBlogDescription" name="description" required>
                         <label for="">Content</label>
-                        <input class="form-control" type="text" id="newBlogContent" name="content">
+                        <input class="form-control" type="text" id="newBlogContent" name="content" required>
                         <input type="submit" class="form-control btn btn-primary" value="Submit">
                     </form>
                 </div>

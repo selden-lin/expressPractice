@@ -13,16 +13,17 @@ module.exports.homeCtrl = function (req, res) {
     var currWidth = "";
     for(var x=0;x<exp.length;x++) {
         if(typeof exp[x].start == "string") {
-            break;
-        }
-        exp[x].start = months[exp[x].start[0]]+" "+exp[x].start[1];
-        if(exp[x].end[0] != "present") {
-            exp[x].end = months[exp[x].end[0]]+" "+exp[x].end[1];
+            
         } else {
-            exp[x].end = "present";
+            exp[x].start = months[exp[x].start[0]]+" "+exp[x].start[1];
+            if(exp[x].end[0] != "present") {
+                exp[x].end = months[exp[x].end[0]]+" "+exp[x].end[1];
+            } else {
+                exp[x].end = "present";
+            }
         }
         
-        if(count == 0) {
+        if(count%3 == 0) {
             if(exp.length - x >= 3) {
                 currWidth = "col-md-4";
             } else if(exp.length - x == 2) {
@@ -30,7 +31,7 @@ module.exports.homeCtrl = function (req, res) {
             } else {
                 currWidth = "col-md-offset-4 col-md-4";
             } 
-        } else if(count == 1) {
+        } else if(count%3 == 1) {
             if(currWidth == "col-md-offset-2 col-md-4") {
                 currWidth = "col-md-4";
             }
@@ -39,7 +40,7 @@ module.exports.homeCtrl = function (req, res) {
         count++;
     }
     
-    home.experience = exp;
+    home.experience = JSON.parse(JSON.stringify(exp));
     
     res.render("home", {title: "home", items: home});
 };
@@ -48,7 +49,7 @@ module.exports.blogListCtrl = function(req, res) {
     
     var pageNum = req.params.num;
     var maxPages = Math.ceil(blogs.length/pageSize);
-    if (pageNum > maxPages) {
+    if (pageNum > maxPages || pageNum <= 0) {
         pageNum = maxPages;
     }
     var itemsToShow = blogs.slice(9*(pageNum-1), 9*(pageNum));
@@ -71,7 +72,13 @@ module.exports.newBlogCtrl = function(req, res) {
 };
 
 module.exports.editBlogCtrl = function(req, res) {
-    res.render("adminEditBlog", {title: "Edit a blog", num: req.params.num});
+    var pageNum = req.params.num;
+    var maxPages = Math.ceil(blogs.length/pageSize);
+    if(pageNum < 0 || pageNum >= blogs.length) {
+        res.redirect("/admin/listBlog");
+    }
+    
+    res.render("adminEditBlog", {title: "Edit a blog", num: req.params.num, items: blogs[pageNum]});
 };
 
 module.exports.editHomeCtrl = function(req, res) {
@@ -80,12 +87,12 @@ module.exports.editHomeCtrl = function(req, res) {
 
 module.exports.adminBlogListCtrl = function(req, res) {
     var pageNum = req.params.num;
-    var maxPages = Math.floor(blogs.length/pageSize);
-    if (pageNum > maxPages) {
+    var maxPages = Math.ceil(blogs.length/pageSize);
+    if (pageNum > maxPages || pageNum <= 0) {
         res.redirect("/admin/listBlog/"+maxPages);
     }
     var itemsToShow = blogs.slice(9*(pageNum-1), 9*(pageNum));
-    res.render("adminListBlog", {title: "admin blog list", items: itemsToShow, pageNum: pageNum});
+    res.render("adminListBlog", {title: "admin blog list", items: itemsToShow, pageNum: pageNum, pages: maxPages});
 };
 
 
@@ -97,18 +104,111 @@ module.exports.getHomeData = function(req, res) {
 }
 
 module.exports.postEditHome = function(req, res) {
+    home.title = req.body.title;
+    home.description = req.body.description;
+    if(req.body["awards-id"] != "") {
+        for(var x=0;x<home.awards.length;x++) {
+            if(home.awards[x].id == req.body["awards-id"]){
+                if(req.body["awards-title"].trim() == "" && req.body["awards-description"].trim() == "" && req.body["awards-year"].trim() == "") {
+                    home.awards.splice(x, 1);
+                    break;
+                } else {
+                    home.awards[x].title = req.body["awards-title"];
+                    home.awards[x].description = req.body["awards-description"];
+                    home.awards[x].year = req.body["awards-year"];
+                }
+            } else if(x == home.awards.length - 1) {
+                var temp = {};
+                temp.id = req.body["awards-id"];
+                temp.title = req.body["awards-title"];
+                temp.description = req.body["awards-description"];
+                temp.year = req.body["awards-year"];
+                home.awards.push(JSON.parse(JSON.stringify(temp)));
+            }
+        }
+    }
+    if(req.body["experience-id"] != "") {
+        for(var x=0;x<home.experience.length;x++) {
+            if(home.experience[x].id == req.body["experience-id"]){
+                if(req.body["leadership-location"].trim() == "" && req.body["leadership-start"].trim() == "" && req.body["leadership-end"].trim() == "" && req.body["leadership-association"].trim() == "" && req.body["leadership-position"].trim() == "") {
+                    home.experience.splice(x, 1);
+                    break;
+                } 
+            } else if(x == home.experience.length - 1){
+                    var temp2 = {};
+                    temp2.id = req.body["experience-id"];
+                    temp2.location = req.body["leadership-location"];
+                    temp2.start = req.body["leadership-start"];
+                    temp2.end = req.body["leadership-end"];
+                    temp2.association = req.body["leadership-association"];
+                    temp2.position = req.body["leadership-position"];
+                    temp2.icon = req.body["experience-icon"];
+                    temp2.description = req.body["leadership-description"];
+                    home.experience.push(JSON.parse(JSON.stringify(temp2)));
+            }    
+        }
+    }
+    if(req.body["skills-id"] != "") {
+        for(var x=0;x<home.skills.length;x++) {
+            if(home.skills[x].id == req.body["skills-id"]){
+                
+                if(req.body["skills-title"].trim() == "" && req.body["skills-items"].trim() == "" ) {
+                    home.skills.splice(x, 1);
+                    break;
+                } 
+            } else if(x == home.skills.length - 1){
+                var temp3 = {};
+                temp3.id = req.body["skills-id"];
+                temp3.title = req.body["skills-title"];
+                temp3.items = req.body["skills-items"].split(", ");
+                home.skills.push(JSON.parse(JSON.stringify(temp3)));
+            }
+            
+        }
+    }
+    fs.writeFile(__dirname+"/../home.json", JSON.stringify(home), function(err) {
+        if(err) {
+            console.log("ERROR: something is wrong");
+        } else{
+            console.log("SUCCESS");
+        }
+    })
     res.redirect("/admin/editHome");
-    
 };
 
 module.exports.postEditBlog = function(req, res) {
+    var temp = {};
+    temp.title = req.body.title;
+    temp.date = req.body.date;
+    temp.description = req.body.description;
+    temp.content = req.body.content;
     
+    blogs[req.body.index] = JSON.parse(JSON.stringify(temp));
+    fs.writeFile(__dirname+"/../blog.json", JSON.stringify({"blogs": blogs}), function(err) {
+        if(err) {
+            console.log("ERROR: something is wrong");
+        } else{
+            console.log("SUCCESS");
+        }
+    })
+    res.redirect("/admin/listBlog");
 };
 
 module.exports.postNewBlog = function(req, res) {
-//    fs.readFile(__dirname+"/../home.json","utf-8", function(err, data) {
-//        console.log(data);    
-//    });
+    var temp = {};
+    temp.title = req.body.title;
+    temp.date = req.body.date;
+    temp.description = req.body.description;
+    temp.content = req.body.content;
+
+    blogs.push(JSON.parse(JSON.stringify(temp)));
+    fs.writeFile(__dirname+"/../blog.json", JSON.stringify(blogs), function(err) {
+        if(err) {
+            console.log("ERROR: something is wrong");
+        } else{
+            console.log("SUCCESS");
+        }
+    })
     res.redirect("/admin/newBlog");
 };
 

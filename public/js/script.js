@@ -24,7 +24,7 @@ function docScroll() {
     var experience = document.getElementById("experience");
     var exp = document.getElementsByClassName("exp-cell");
    
-    if(expHit == 0 && document.body.scrollTop >= experience.offsetTop-400) {
+    if(expHit == 0 && document.body.scrollTop >= experience.offsetTop-800) {
         for(var x=0;x<exp.length;x++) {
             exp[x].classList.add("exp-flip");
         }
