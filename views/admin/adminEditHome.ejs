@@ -127,6 +127,9 @@
                     </div>
             </div>
         </div>
+            
+            <!-- The skills section -->
+            
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h4>Skills</h4>
@@ -136,14 +139,14 @@
                         <tr>
                             <th>ID</th>
                             <th>Title</th>
-                            <th>Items</th>
+                            <th>Level</th>
                             <th></th>
                         </tr>
                         <% for(var x=0;x<items.skills.length;x++) { %>
                         <tr>
                             <td><%= items.skills[x].id %></td>
                             <td><%= items.skills[x].title %></td>
-                            <td><%= items.skills[x].items.toString() %></td>
+                            <td><%= items.skills[x].level %></td>
                             <td><input id="admin-skills-<%= items.skills[x].id %>" type="button" class="adminEditField btn btn-primary" value="edit"></td>
                         </tr>
                         <script src="/js/handlers/skills.js"></script>
@@ -154,13 +157,101 @@
                     </table>
 
                     <!-- Is hidden at first  -->
-                    <div class="form-group" id="editSkillsForm" >
+                    <div class="form-group" id="editFunSkillsForm" >
                         <label for="skills-title">ID</label>
                         <input type="text" class="form-control" id="skills-id" name="skills-id" >
                         <label for="skills-title">Title</label>
                         <input type="text" class="form-control" id="skills-title" name="skills-title">
-                        <label for="skills-items">Items</label>
-                        <input type="text" class="form-control" id="skills-items" name="skills-items">
+                        <label for="skills-items">Level</label>
+                        <input type="text" class="form-control" id="skills-level" name="skills-level">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- The fun skills section -->
+            
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h4>Fun Skills</h4>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-hover">
+                        <tr>
+                            <th>ID</th>
+                            <th>Title</th>
+                            <th>Level</th>
+                            <th></th>
+                        </tr>
+                        <% for(var x=0;x<items.funSkills.length;x++) { %>
+                        <tr>
+                            <td><%= items.funSkills[x].id %></td>
+                            <td><%= items.funSkills[x].title %></td>
+                            <td><%= items.funSkills[x].level %></td>
+                            <td><input id="admin-funSkills-<%= items.funSkills[x].id %>" type="button" class="adminEditField btn btn-primary" value="edit"></td>
+                        </tr>
+                        <script src="/js/handlers/funSkills.js"></script>
+                        <script>
+                            skillsHandler("<%= "admin-funSkills-"+items.funSkills[x].id %>");
+                        </script>
+                        <% } %>
+                    </table>
+
+                    <!-- Is hidden at first  -->
+                    <div class="form-group" id="editSkillsForm" >
+                        <label for="skills-title">ID</label>
+                        <input type="text" class="form-control" id="funSkills-id" name="funSkills-id" >
+                        <label for="skills-title">Title</label>
+                        <input type="text" class="form-control" id="funSkills-title" name="funSkills-title">
+                        <label for="skills-items">Level</label>
+                        <input type="text" class="form-control" id="funSkills-level" name="funSkills-level">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Education section -->
+            
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h4>Education</h4>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-hover">
+                        <tr>
+                            <th>ID</th>
+                            <th>School</th>
+                            <th>Program</th>
+                            <th>Year</th>
+                            <th>GPA</th>
+                            <th></th>
+                        </tr>
+                        <% for(var x=0;x<items.education.length;x++) { %>
+                        <tr>
+                            <td><%= items.education[x].id %></td>
+                            <td><%= items.education[x].school %></td>
+                            <td><%= items.education[x].program %></td>
+                            <td><%= items.education[x].year %></td>
+                            <td><%= items.education[x].gpa %></td>
+                            <td><input id="admin-education-<%= items.funSkills[x].id %>" type="button" class="adminEditField btn btn-primary" value="edit"></td>
+                        </tr>
+                        <script src="/js/handlers/education.js"></script>
+                        <script>
+                            skillsHandler("<%= "admin-education-"+items.funSkills[x].id %>");
+                        </script>
+                        <% } %>
+                    </table>
+
+                    <!-- Is hidden at first  -->
+                    <div class="form-group" id="editEducationForm" >
+                        <label for="skills-title">ID</label>
+                        <input type="text" class="form-control" id="education-id" name="education-id" >
+                        <label for="skills-title">School</label>
+                        <input type="text" class="form-control" id="education-school" name="education-school">
+                        <label for="skills-title">Program</label>
+                        <input type="text" class="form-control" id="education-program" name="education-program">
+                        <label for="skills-title">Year</label>
+                        <input type="text" class="form-control" id="education-year" name="education-year">
+                        <label for="skills-title">GPA</label>
+                        <input type="text" class="form-control" id="education-gpa" name="education-gpa">
                     </div>
                 </div>
             </div>

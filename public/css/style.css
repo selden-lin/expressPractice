@@ -260,8 +260,87 @@ body {
 
 #about-content {
     text-align: center;
-    padding: 70px;
+    padding: 50px 90px 30px 90px;
     font-size: 14pt;
+}
+
+.about-skills {
+    padding: 50px 70px 30px 70px;
+    font-size: 14pt;
+}
+
+.about-skills-cell {
+    padding: 10px;
+    position: relative;
+    width: 0%;
+}
+
+.about-skills-level {
+    color: white;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.about-skills-cell > p {
+    color: white;
+}
+
+.about-skills-cell > div {
+    height: 10px;
+    background-color: #c9e8e8;
+    position: relative;
+}
+
+.about-skills-cell > div > div {
+    height: 10px;
+    background-color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.about-education {
+    padding: 50px 70px 30px 70px;
+    font-size: 14pt;    
+}
+
+.about-education-box {
+    padding-top: 80px;
+}
+
+.about-education-cell {
+    position: relative;
+    padding: 10px;
+}
+
+.about-education-school {
+    margin-bottom: 8px;
+    font-size: 15pt;
+    font-weight: bold;
+}
+
+.about-education-program {
+    font-size: 12pt;
+    font-style: italic;
+}
+
+.about-education-year {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.about-education-gpa {
+    position: absolute;
+    right: 10px;
+    top: 40px;
+    font-size: 10pt;
+}
+
+.about-skills-rise {
+    width: 0;
+    transition: width 1s;
 }
 
 /********************************** Experience section **********************************************/
@@ -319,7 +398,8 @@ body {
 
 .exp-title {
     text-align: center;
-    height: 110px;
+    height: 120px;
+    padding: 10px;
 }
 
 .exp-title h3 {

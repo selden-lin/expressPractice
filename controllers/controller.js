@@ -152,7 +152,7 @@ module.exports.postEditHome = function(req, res) {
         for(var x=0;x<home.skills.length;x++) {
             if(home.skills[x].id == req.body["skills-id"]){
                 
-                if(req.body["skills-title"].trim() == "" && req.body["skills-items"].trim() == "" ) {
+                if(req.body["skills-title"].trim() == "" && req.body["skills-level"].trim() == "" ) {
                     home.skills.splice(x, 1);
                     break;
                 } 
@@ -160,8 +160,44 @@ module.exports.postEditHome = function(req, res) {
                 var temp3 = {};
                 temp3.id = req.body["skills-id"];
                 temp3.title = req.body["skills-title"];
-                temp3.items = req.body["skills-items"].split(", ");
+                temp3.level = req.body["skills-level"];
                 home.skills.push(JSON.parse(JSON.stringify(temp3)));
+            }
+            
+        }
+    }
+    if(req.body["funSkills-id"] != "") {
+        for(var x=0;x<home.funSkills.length;x++) {
+            if(home.funSkills[x].id == req.body["funSkills-id"]){
+                if(req.body["funSkills-title"].trim() == "" && req.body["funSkills-level"].trim() == "" ) {
+                    home.funSkills.splice(x, 1);
+                    break;
+                } 
+            } else if(x == home.funSkills.length - 1){
+                var temp5 = {};
+                temp5.id = req.body["funSkills-id"];
+                temp5.title = req.body["funSkills-title"];
+                temp5.level = req.body["funSkills-level"];
+                home.funSkills.push(JSON.parse(JSON.stringify(temp5)));
+            }
+            
+        }
+    }
+    if(req.body["education-id"] != "") {
+        for(var x=0;x<home.education.length;x++) {
+            if(home.education[x].id == req.body["education-id"]){
+                if(req.body["education-program"].trim() == "" && req.body["education-school"].trim() == "" && req.body["education-year"].trim() == "" && req.body["education-gpa"].trim() == "" ) {
+                    home.education.splice(x, 1);
+                    break;
+                } 
+            } else if(x == home.education.length - 1){
+                var temp4 = {};
+                temp4.id = req.body["education-id"];
+                temp4.school = req.body["education-school"];
+                temp4.program = req.body["education-program"];
+                temp4.year = req.body["education-year"];
+                temp4.gpa = req.body["education-gpa"];
+                home.education.push(JSON.parse(JSON.stringify(temp4)));
             }
             
         }

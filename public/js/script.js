@@ -2,6 +2,7 @@ var word = "";
 var navHold = null;
 var expHit = 0;
 var awardHit = 0;
+var aboutHit = 0;
 
 (function () {
     drawWelcome();
@@ -15,6 +16,7 @@ var awardHit = 0;
     
     
     // When the user scrolls to the experience section, the cards flip
+    docScroll();
     window.onscroll = docScroll;
     
 })();
@@ -23,7 +25,20 @@ function docScroll() {
     // flipping the exp cards on scroll
     var experience = document.getElementById("experience");
     var exp = document.getElementsByClassName("exp-cell");
-   
+    var about = document.getElementById("about");
+    var aboutCells = document.getElementsByClassName("about-skills-cell");
+    
+    // Make a get request for the percents
+    
+    if(aboutHit == 0 && document.body.scrollTop >= about.offsetTop-300) {
+        console.log("hit");
+        for(var x=0;x<aboutCells.length;x++) {
+            aboutCells[x].classList.add("about-skills-rise");
+            aboutCells[x].style.width = "100%";
+        }
+        aboutHit = 1;
+    }
+    
     if(expHit == 0 && document.body.scrollTop >= experience.offsetTop-800) {
         for(var x=0;x<exp.length;x++) {
             exp[x].classList.add("exp-flip");
