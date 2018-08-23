@@ -1,5 +1,6 @@
 var blogs = require("../blog.json").blogs;
 var home = require("../home.json");
+var passport = require("passport"); 
 var fs = require("fs");
 
 var pageSize = 10;
