@@ -21,8 +21,6 @@ router.get("/blogItem/:num", ctrl.blogPageCtrl);
 
 
 
-
-
 // ************************  The back end part *************************
 
 //Login page 
