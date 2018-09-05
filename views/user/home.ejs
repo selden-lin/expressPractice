@@ -1,123 +1,158 @@
 <html>
 <%- include header.ejs %>
-    
-<body>
-    <%- include nav.ejs %>
-    
-    <div id="welcome" class="row row-1">
-        <div id="heart-div" class="heart-rate">
-            <canvas id="myCanvas"></canvas>
-            <div class="fade-in"></div>
-            <div class="fade-out"></div>
-            <div id="welcomeMessage">
-                <p id="wm1">I AM</p>
-                <p>MICHAEL LEE</p>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div id="about" class="row-1">
-            <div class="row">
-                <h2 class="text-center"><span class="section-title-white"><span class="fas fa-info-circle title-icon"></span>ABOUT</span></h2>
-                <div id="about-content">
-                    <%= items.description %>
+
+    <body>
+        <%- include nav.ejs %>
+            <script type="text/javascript" src="https://www.dropbox.com/static/api/2/dropins.js" id="dropboxjs" data-app-key="pr50tg3x8khmd27"></script>
+
+            <div id="welcome" class="row row-1">
+                <div id="heart-div" class="heart-rate">
+                    <canvas id="myCanvas"></canvas>
+                    <div class="fade-in"></div>
+                    <div class="fade-out"></div>
+                    <div id="welcomeMessage">
+                        <p id="wm1">I AM</p>
+                        <p>MICHAEL LEE</p>
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="about-education container">
+            <div class="container front-container">
+                <div id="about" class="row-1">
                     <div class="row">
-                        <div class="col-md-2">
-                            <h3><span class="section-title-white"><span class="fas fa-graduation-cap title-icon"></span>Education</span></h3>
-                        </div>
-                        <div class="col-md-10 about-education-box">
-                            <% for(var x=0;x<items.education.length;x++) { %>
-                            
-                            <div class="about-education-cell">
-                                <h4 class="about-education-school"><%= items.education[x].school %></h4>
-                                <p class="about-education-program"><%= items.education[x].program %></p>
-                                <p class="about-education-year"><%= items.education[x].year %></p>
-                                <p class="about-education-gpa">GPA: <%= items.education[x].gpa %></p>
-                            </div>
-                            
-                            <% } %>
+                        <h2 class="text-center"><span class="section-title-white"><span class="fas fa-info-circle title-icon"></span>ABOUT</span>
+                        </h2>
+                        <div id="about-content">
+                            <%= items.description %>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="about-education front-container container">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <h3><span class="section-title-white"><span class="fas fa-graduation-cap title-icon"></span>Education</span>
+                                    </h3>
+                                </div>
+                                <div class="col-md-10 about-education-box">
+                                    <% for(var x=0;x<items.education.length;x++) { %>
+
+                                        <div class="about-education-cell">
+                                            <h4 class="about-education-school">
+                                                <%= items.education[x].school %>
+                                            </h4>
+                                            <p class="about-education-program">
+                                                <%= items.education[x].program %>
+                                            </p>
+                                            <p class="about-education-year">
+                                                <%= items.education[x].year %>
+                                            </p>
+                                            <p class="about-education-gpa">GPA:
+                                                <%= items.education[x].gpa %>
+                                            </p>
+                                        </div>
+
+                                        <% } %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 about-skills">
+                            <h3><span class="section-title-white"><span class="fas fa-trophy title-icon"></span>Skills</span>
+                            </h3>
+                            <% for(var x=0;x<items.skills.length;x++) { %>
+
+                                <div class="about-skills-cell">
+                                    <p>
+                                        <%= items.skills[x].title %>
+                                    </p>
+                                    <p class="about-skills-level">
+                                        <%= items.skills[x].level %>%</p>
+                                    <div>
+                                        <div style="width: <%= items.skills[x].level %>%"></div>
+                                    </div>
+                                </div>
+
+                                <% } %>
+                        </div>
+                        <div class="col-md-6 about-skills">
+                            <h3><span class="section-title-white"><span class="fas fa-star title-icon"></span>Other Skills</span>
+                            </h3>
+                            <% for(var x=0;x<items.funSkills.length;x++) { %>
+
+                                <div class="about-skills-cell">
+                                    <p>
+                                        <%= items.funSkills[x].title %>
+                                    </p>
+                                    <p class="about-skills-level">
+                                        <%= items.funSkills[x].level %>%</p>
+                                    <div>
+                                        <div style="width:<%= items.funSkills[x].level %>%"></div>
+                                    </div>
+                                </div>
+
+                                <% } %>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="experience" class="row row-1">
+                    <h2 class="text-center"><span class="section-title-black"><span class="fas fa-briefcase title-icon"></span>EXPERIENCE</span>
+                    </h2>
+
+                    <% for(var x=0;x<items.experience.length;x++) { %>
+                        <div class="exp-cell <%= items.experience[x].width %>">
+                            <div class="exp-box">
+                                <div class="exp-content">
+                                    <div class="exp-pic <%= items.experience[x].icon %>"></div>
+                                    <div class="exp-content-text">
+                                        <%= items.experience[x].description %>
+                                    </div>
+                                </div>
+                                <div class="exp-title">
+                                    <h3>
+                                        <%= items.experience[x].association %>
+                                    </h3>
+                                    <p>
+                                        <%= items.experience[x].position %>
+                                    </p>
+                                    <p>
+                                        <%= items.experience[x].start +" - "+ items.experience[x].end %>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <% } %>
+
+                </div>
+
+                <div id="awards" class="row row-1">
+                    <h2 class="text-center"><span class="section-title-white"><span class="fas fa-trophy title-icon "></span>AWARDS</span>
+                    </h2>
+                    <br/><br/>
+                    <% for(var x=0;x<items.awards.length;x++) { %>
+                        <div class="award-row">
+                            <div class="award-img">
+                                <span class="fas fa-trophy"></span>
+                            </div>
+                            <div class="award-content">
+                                <h3>
+                                    <%= items.awards[x].title %>
+                                </h3>
+                                <p class="award-date">
+                                    <%= items.awards[x].year %>
+                                </p>
+                                <p class="award-info">
+                                    <%= items.awards[x].description %>
+                                </p>
+                            </div>
+                        </div>
+                        <% } %>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-6 about-skills">
-                    <h3><span class="section-title-white"><span class="fas fa-trophy title-icon"></span>Skills</span></h3>
-                    <% for(var x=0;x<items.skills.length;x++) { %>
-                    
-                    <div class="about-skills-cell">
-                        <p><%= items.skills[x].title %></p>
-                        <p class="about-skills-level"><%= items.skills[x].level %>%</p>
-                        <div>
-                            <div style="width: <%= items.skills[x].level %>%"></div>
-                        </div>
-                    </div>
-                    
-                    <% } %>
-                </div>
-                <div class="col-md-6 about-skills">
-                    <h3><span class="section-title-white"><span class="fas fa-star title-icon"></span>Other Skills</span></h3>
-                    <% for(var x=0;x<items.funSkills.length;x++) { %>
-                    
-                    <div class="about-skills-cell">
-                        <p><%= items.funSkills[x].title %></p>
-                        <p class="about-skills-level"><%= items.funSkills[x].level %>%</p>
-                        <div>
-                            <div style="<%= items.funSkills[x].level %>%"></div>
-                        </div>
-                    </div>
-                    
-                    <% } %>
-                </div>
-            </div> 
-        </div>
-        
-        <div id="experience" class="row row-1">
-            <h2 class="text-center"><span class="section-title-black"><span class="fas fa-briefcase title-icon"></span>EXPERIENCE</span></h2>
-            
-            <% for(var x=0;x<items.experience.length;x++) { %>
-                <div class="exp-cell <%= items.experience[x].width %>">
-                    <div class="exp-box">
-                        <div class="exp-content">
-                            <div class="exp-pic <%= items.experience[x].icon %>"></div>
-                            <div class="exp-content-text"><%= items.experience[x].description %></div>
-                        </div>
-                        <div class="exp-title">
-                            <h3><%= items.experience[x].association %></h3>
-                            <p><%= items.experience[x].position %></p>
-                            <p><%= items.experience[x].start +" - "+ items.experience[x].end %></p>
-                        </div>
-                    </div>
-                </div>
-            
-            <% } %>
-        
-        </div>
-        
-        <div id="awards" class="row row-1">
-            <h2 class="text-center"><span class="section-title-white"><span class="fas fa-trophy title-icon "></span>AWARDS</span></h2>
-            <br/><br/>
-            <% for(var x=0;x<items.awards.length;x++) { %>
-                <div class="award-row">
-                    <div class="award-img">
-                        <span class="fas fa-trophy"></span>
-                    </div>
-                    <div class="award-content">
-                        <h3><%= items.awards[x].title %></h3>
-                        <p class="award-date"><%= items.awards[x].year %></p>
-                        <p class="award-info"><%= items.awards[x].description %></p>
-                    </div>
-                </div>
-            <% } %>
-        </div>
-    </div>
-    
-    
-    
-    <%- include footer.ejs %>
-</body>    
+
+
+            <%- include footer.ejs %>
+    </body>
+
 </html>

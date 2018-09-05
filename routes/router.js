@@ -53,6 +53,12 @@ router.get("/admin/listBlog/:num", isLoggedIn, ctrl.adminBlogListCtrl);
 
 // ************************  The REST api *************************
 
+// Logout
+router.get('/admin/logout', function(req, res){
+  req.logout();
+  res.redirect('/admin/login');
+});
+
 // Check if login is correct
 router.post('/admin/login',
             passport.authenticate('local-login', { successRedirect: '/admin/editHome',
