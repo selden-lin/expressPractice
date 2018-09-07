@@ -7,6 +7,7 @@ var app = express();
 var session = require("express-session");
 var passport = require("passport");
 var LocalStrategy = require("passport-local").Strategy;
+var port = process.env.PORT || 3000;
 
 app.use(session({
     secret: "cats"
@@ -55,6 +56,6 @@ passport.use(new LocalStrategy(
     }
 ));
 
-app.listen(3000, function () {
-    console.log("Go to localhost 3000");
+app.listen(port, function () {
+    console.log("Go to localhost "+port);
 });
