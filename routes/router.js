@@ -20,6 +20,7 @@ router.get("/blog/:num", ctrl.blogListCtrl);
 router.get("/blogItem/:num", ctrl.blogPageCtrl);
 
 
+
 // ************************  The back end part *************************
 
 //Login page 
@@ -28,40 +29,40 @@ router.get("/admin/login", function(req, res) {
 });
 
 // Default
-router.get("/admin", passport.authenticate('local', { successRedirect: '/admin',
-                                   failureRedirect: '/admin/login' }), function(req, res) {
+router.get("/admin", isLoggedIn, function(req, res) {
     res.redirect("/admin/editHome");
 });
 
 // Add a new blog item
-router.get("/admin/newBlog", passport.authenticate('local', { successRedirect: '/admin/newBlog',
-                                   failureRedirect: '/admin/login' }), ctrl.newBlogCtrl);
+router.get("/admin/newBlog", isLoggedIn, ctrl.newBlogCtrl);
 
 // Edit a blog item
-router.get("/admin/editBlog/:num", passport.authenticate('local', { successRedirect: '/admin/editBlog/:num',
-                                   failureRedirect: '/admin/login' }), ctrl.editBlogCtrl);
+router.get("/admin/editBlog/:num", isLoggedIn, ctrl.editBlogCtrl);
 
 // Edit the home page
-router.get("/admin/editHome", passport.authenticate('local', { successRedirect: '/admin/editHome',
-                                   failureRedirect: '/admin/login' }), ctrl.editHomeCtrl);
+router.get("/admin/editHome", isLoggedIn, ctrl.editHomeCtrl);
 
 // List the blog items for updating
-router.get("/admin/listBlog", passport.authenticate('local', { successRedirect: '/admin/listBlog',
-                                   failureRedirect: '/admin/login' }), function (req, res) {
+router.get("/admin/listBlog", isLoggedIn, function (req, res) {
     res.redirect("/admin/listBlog/1");
 });
 
 // List the blog items for updating
-router.get("/admin/listBlog/:num", passport.authenticate('local', { successRedirect: '/admin/listBlog/:num',
-                                   failureRedirect: '/admin/' }), ctrl.adminBlogListCtrl);
+router.get("/admin/listBlog/:num", isLoggedIn, ctrl.adminBlogListCtrl);
 
 
 // ************************  The REST api *************************
 
+// Logout
+router.get('/admin/logout', function(req, res){
+  req.logout();
+  res.redirect('/admin/login');
+});
+
 // Check if login is correct
-router.post('/login',
-            passport.authenticate('local', { successRedirect: '/admin/editHome',
-                                   failureRedirect: '/login',
+router.post('/admin/login',
+            passport.authenticate('local-login', { successRedirect: '/admin/editHome',
+                                   failureRedirect: '/admin/login',
                                    failureFlash: true })
 );
 
@@ -80,5 +81,12 @@ router.post("/admin/editBlog/:num", ctrl.postEditBlog);
 
 // Deleting blog post
 router.delete("/admin/editBlog/:num", ctrl.deleteEditBlog);
+
+function isLoggedIn(req, res, next) {
+    if (req.isAuthenticated())
+        return next();
+
+    res.redirect('/admin/login');
+}
 
 module.exports = router;
