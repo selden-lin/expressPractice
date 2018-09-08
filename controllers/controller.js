@@ -72,7 +72,7 @@ module.exports.homeCtrl = function (req, res) {
     home.experience = JSON.parse(JSON.stringify(exp));
 
     res.render("home", {
-        title: "home",
+        title: home.title,
         items: home
     });
 };
