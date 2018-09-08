@@ -8,11 +8,8 @@ var cookieParser = require('cookie-parser');
 var session = require("express-session");
 var passport = require("passport");
 var LocalStrategy = require("passport-local").Strategy;
-<<<<<<< HEAD
 var port = process.env.PORT || 3000;
-=======
 var flash = require('connect-flash');
->>>>>>> d14d935aa3cfbb0de889246647baa5bce2eb915e
 
 // Used for the db
 var mongoose = require("mongoose");
