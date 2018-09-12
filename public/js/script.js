@@ -27,11 +27,20 @@ function docScroll() {
     var exp = document.getElementsByClassName("exp-cell");
     var about = document.getElementById("about");
     var aboutCells = document.getElementsByClassName("about-skills-cell");
+    var aboutPic = document.getElementsByClassName("about-pic")[0];
     
-    // Make a get request for the percents
+    if(document.body.scrollTop >= about.offsetTop-70 &&  document.body.scrollTop <= about.offsetTop+aboutPic.offsetHeight+40) {
+        aboutPic.style.top = 70;
+        aboutPic.style.position = "fixed";
+    } else if(document.body.scrollTop < about.offsetTop-70){
+        aboutPic.style.position = "absolute";
+        aboutPic.style.top = 0;
+    } else{
+        aboutPic.style.top = aboutPic.offsetHeight+100;
+        aboutPic.style.position = "absolute";
+    }
     
-    if(aboutHit == 0 && document.body.scrollTop >= about.offsetTop-300) {
-        console.log("hit");
+    if(aboutHit == 0 && document.body.scrollTop >= about.offsetTop) {
         for(var x=0;x<aboutCells.length;x++) {
             aboutCells[x].classList.add("about-skills-rise");
             aboutCells[x].style.width = "100%";
@@ -39,9 +48,11 @@ function docScroll() {
         aboutHit = 1;
     }
     
-    if(expHit == 0 && document.body.scrollTop >= experience.offsetTop-800) {
+    if(expHit == 0 && document.body.scrollTop >= experience.offsetTop-300) {
         for(var x=0;x<exp.length;x++) {
             exp[x].classList.add("exp-flip");
+            exp[x].style.transform = "rotateY(180deg)";
+            exp[x].style.transform = "rotateY(0deg)";
         }
         expHit = 1;
     }
@@ -50,7 +61,7 @@ function docScroll() {
     var awards = document.getElementById("awards");
     var items = document.getElementsByClassName("award-row");
     
-    if(awardHit == 0 && document.body.scrollTop >= awards.offsetTop-400) {
+    if(awardHit == 0 && document.body.scrollTop >= awards.offsetTop-200) {
         for(var x=0;x<items.length;x++) {
             items[x].classList.add("award-animate");
         }
@@ -84,6 +95,8 @@ function smoothScroll(div) {
 // Draws the heartbeat animation and resizes the panes on browser resize
 function drawWelcome() {
     var wm = document.getElementById("welcomeMessage");
+    var aboutImg = document.getElementsByClassName("about-pic")[0];
+    var aboutContent = document.getElementsByClassName("about-pic-content")[0];
     var height = window.innerHeight;
     var width = window.innerWidth;
 
@@ -97,6 +110,10 @@ function drawWelcome() {
             rows[x].style.maxWidth = (width) + "px";
         }
 
+        // About pic
+        aboutContent.style.minHeight = height;
+        aboutImg.style.height = height;
+        
         // The heartbeat animation
         var heartDiv = document.getElementById("heart-div");
         heartDiv.style.height = window.innerHeight + "px";

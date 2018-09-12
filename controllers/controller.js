@@ -22,7 +22,7 @@ var previewArg = {
     "path": "/test.docx"
 }
 dbx.filesGetTemporaryLink(previewArg).then(function (res) {
-    console.log(res.link);
+    //console.log(res.link);
     http.get(res.link, function (res) {
 //        var blob = txt.fileBlob;
 //

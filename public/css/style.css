@@ -41,7 +41,6 @@ body {
 .row-1 {
     padding: 0px;
     margin: 0px;
-    padding-bottom: 70px;
     overflow-x: hidden;
 }
 
@@ -244,6 +243,7 @@ body {
 #about {
     background-color: #e0251f;
     color: white;
+    position: relative;
 }
 
 .section-title-white {
@@ -258,6 +258,28 @@ body {
     border-bottom: 1px solid black;
 }
 
+.about-pic {
+    position: absolute;
+    top: 0;
+    padding: 0px;
+    margin: 0px;
+    z-index: 5;
+}
+
+.about-pic-content {
+    position: relative;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    background-color: #e0251f;
+    z-index: 10;
+    
+}
+
+.about-pic-img {
+    height: 100%;
+}
+
 #about-content {
     text-align: center;
     padding: 50px 90px 30px 90px;
@@ -265,7 +287,7 @@ body {
 }
 
 .about-skills {
-    padding: 50px 70px 30px 70px;
+    padding: 50px 70px 110px 70px;
     font-size: 14pt;
 }
 
@@ -302,7 +324,7 @@ body {
 
 .about-education {
     padding: 50px 70px 30px 70px;
-    font-size: 14pt;    
+    font-size: 14pt;
 }
 
 .about-education-box {
@@ -349,10 +371,12 @@ body {
     background-color: white;
 }
 
+
+
 .exp-cell {
     height: 400px;
     margin-top: 50px;
-    transform: rotateY(180deg);
+    transform: rotateY(0deg);
 }
 
 .exp-box {
@@ -559,6 +583,7 @@ body {
 }
 
 /*************************************** Blog list page **************************************/
+
 .blog-list-cell {
     border: 0.5px solid #cccccc;
     position: relative;
@@ -569,18 +594,20 @@ body {
     margin-top: 70px;
     height: 100%;
 }
-    
-.blog-list-link:link,.blog-list-link:active,.blog-list-link:visited {
+
+.blog-list-link:link,
+.blog-list-link:active,
+.blog-list-link:visited {
     text-decoration: none;
     color: black;
     line-height: 0px;
-    
+
 }
 
 .blog-list-title-box {
     position: absolute;
     top: 30%;
-    width: 100%;    
+    width: 100%;
     text-align: center;
     margin: 0;
     line-height: normal;
@@ -606,7 +633,7 @@ body {
     opacity: 0;
     font-size: 20pt;
     color: white;
-    background-color: rgba(180,30,24, 0.95);
+    background-color: rgba(180, 30, 24, 0.95);
     font-family: 'Oswald', sans-serif;
     transition: opacity 0.4s;
 }
@@ -616,14 +643,14 @@ body {
     top: 20%;
     margin: 0px;
     padding: 10px;
-    text-align:center;
+    text-align: center;
     width: inherit;
     height: 75%;
     overflow: hidden;
     line-height: normal;
 }
 
-.blog-list-link:hover .blog-list-desc{
+.blog-list-link:hover .blog-list-desc {
     opacity: 1;
 }
 
@@ -633,7 +660,9 @@ body {
     padding: 30px;
 }
 
-.page-bar-cell:active, .page-bar-cell:link, .page-bar-cell:visited {
+.page-bar-cell:active,
+.page-bar-cell:link,
+.page-bar-cell:visited {
     padding: 15px;
     text-decoration: none;
     background-color: rgb(180, 30, 24);
@@ -641,16 +670,16 @@ body {
     color: white;
 }
 
-.page-bar-cell:hover{
+.page-bar-cell:hover {
     background-color: #e33b35;
 }
 
-.page-bar-active:active, .page-bar-active:link, .page-bar-active:visited {
+.page-bar-active:active,
+.page-bar-active:link,
+.page-bar-active:visited {
     padding: 15px;
     text-decoration: none;
     display: inline-block;
     color: white;
     background-color: #e33b35;
 }
-
-
