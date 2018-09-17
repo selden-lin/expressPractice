@@ -27,17 +27,19 @@ function docScroll() {
     var exp = document.getElementsByClassName("exp-cell");
     var about = document.getElementById("about");
     var aboutCells = document.getElementsByClassName("about-skills-cell");
+    var aboutContent = document.getElementsByClassName("about-pic-content")[0];
     var aboutPic = document.getElementsByClassName("about-pic")[0];
     
-    if(document.body.scrollTop >= about.offsetTop-70 &&  document.body.scrollTop <= about.offsetTop+aboutPic.offsetHeight+40) {
+    if(document.body.scrollTop >= about.offsetTop-70 &&  document.body.scrollTop <= about.offsetTop+aboutContent.offsetHeight-window.innerHeight) {
         aboutPic.style.top = 70;
         aboutPic.style.position = "fixed";
     } else if(document.body.scrollTop < about.offsetTop-70){
         aboutPic.style.position = "absolute";
         aboutPic.style.top = 0;
     } else{
-        aboutPic.style.top = aboutPic.offsetHeight+100;
+        console.log(aboutContent.offsetHeight+" "+document.body.scrollTop);
         aboutPic.style.position = "absolute";
+        aboutPic.style.top = about.offsetTop+aboutContent.offsetHeight-(2*window.innerHeight)-10;
     }
     
     if(aboutHit == 0 && document.body.scrollTop >= about.offsetTop) {
@@ -100,6 +102,7 @@ function drawWelcome() {
     var height = window.innerHeight;
     var width = window.innerWidth;
 
+    
     var welcome = document.getElementById("welcome");
     var rows = document.getElementsByClassName("row-1");
 
@@ -112,6 +115,7 @@ function drawWelcome() {
 
         // About pic
         aboutContent.style.minHeight = height;
+        aboutContent.style.maxWidth = width;
         aboutImg.style.height = height;
         
         // The heartbeat animation
