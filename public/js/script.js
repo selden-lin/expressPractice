@@ -92,7 +92,7 @@ function smoothScroll(div) {
 // Draws the heartbeat animation and resizes the panes on browser resize
 function drawWelcome() {
     var wm = document.getElementById("welcomeMessage");
-    var aboutImg = document.getElementsByClassName("about-pic");
+    var aboutImg = document.getElementsByClassName("about-pic-img");
     var aboutContent = document.getElementsByClassName("about-pic-content");
     var height = window.innerHeight;
     var width = window.innerWidth;
@@ -102,6 +102,34 @@ function drawWelcome() {
     var rows = document.getElementsByClassName("row-1");
 
     if (height > 400) {
+        wm.style.fontSize = height * 0.20 + "px";
+        for (var x = 0; x < rows.length; x++) {
+            rows[x].style.minHeight = (height - 70) + "px";
+            rows[x].style.maxWidth = (width) + "px";
+        }
+
+        // About pic
+        for (var x = 0; x < aboutImg.length; x++) {
+            aboutContent[x].style.minHeight = height;
+            aboutContent[x].style.maxWidth = width;
+            console.log(aboutImg[x].height +" "+ aboutImg[x].offsetWidth);
+            if(aboutImg[x].offsetHeight > aboutImg[x].offsetWidth) {
+                aboutImg[x].style.width = width / 2;
+            } else if(aboutImg[x].offsetHeight < aboutImg[x].offsetWidth){
+                aboutImg[x].style.height = height;
+            } else {
+                if(width < height) {
+                    aboutImg[x].style.height = height;
+                } else {
+                    aboutImg[x].style.width = width / 2;
+                }
+            }
+        }
+
+        // The heartbeat animation
+        drawHeart(width, height);
+    } else {
+        height = 400;
         wm.style.fontSize = height * 0.20 + "px";
         for (var x = 0; x < rows.length; x++) {
             rows[x].style.minHeight = (height - 70) + "px";
