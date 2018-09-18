@@ -10,7 +10,7 @@
                     <canvas id="myCanvas"></canvas>
                     <div class="fade-in"></div>
                     <div class="fade-out"></div>
-                    <div id="welcomeMessage">
+                    <div class="col-md-12" id="welcomeMessage" data-tilt data-tilt-max="50" data-tilt-speed="400" data-tilt-perspective="500">
                         <p id="wm1">I AM</p>
                         <p>MICHAEL LEE</p>
                     </div>
@@ -32,10 +32,8 @@
                         <div class="row">
                             <div class="about-education front-container container">
                                 <div class="row">
-                                    <div class="col-md-4">
-                                        <h3><span class="section-title-white"><span class="fas fa-graduation-cap title-icon"></span>Education</span>
-                                        </h3>
-                                    </div>
+                                    <h3><span class="section-title-white"><span class="fas fa-graduation-cap title-icon"></span>Education</span>
+                                    </h3>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-offset-1 col-md-10 about-education-box">
@@ -102,29 +100,32 @@
                     </div>
                 </div>
                 <div id="experience" class="row row-1">
-                    <div class="about-pic-content about-pic-content-reverse"> 
+                    <div class="about-pic-content about-pic-content-reverse">
                         <h2 class="content-header  text-center"><span class="section-title-black"><span class="fas fa-briefcase title-icon"></span>EXPERIENCE</span>
                         </h2>
 
                         <% for(var x=0;x<items.experience.length;x++) { %>
-                            <div class="exp-cell <%= items.experience[x].width %>">
-                                <div class="exp-box">
-                                    <div class="exp-content">
-                                        <div class="exp-pic <%= items.experience[x].icon %>"></div>
-                                        <div class="exp-content-text">
-                                            <%= items.experience[x].description %>
+                            <div class="row">
+                                <div class="col-md-1"></div>
+                                <div class="exp-cell <%= items.experience[x].width %>">
+                                    <div class="exp-box">
+                                        <div class="exp-content">
+                                            <div class="exp-pic <%= items.experience[x].icon %>"></div>
+                                            <div class="exp-content-text">
+                                                <%= items.experience[x].description %>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="exp-title">
-                                        <h3>
-                                            <%= items.experience[x].association %>
-                                        </h3>
-                                        <p>
-                                            <%= items.experience[x].position %>
-                                        </p>
-                                        <p>
-                                            <%= items.experience[x].start +" - "+ items.experience[x].end %>
-                                        </p>
+                                        <div class="exp-title">
+                                            <h3>
+                                                <%= items.experience[x].association %>
+                                            </h3>
+                                            <p>
+                                                <%= items.experience[x].position %>
+                                            </p>
+                                            <p>
+                                                <%= items.experience[x].start +" - "+ items.experience[x].end %>
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -163,7 +164,7 @@
                             <% } %>
                     </div>
                 </div>
-                
+
             </div>
 
 

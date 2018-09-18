@@ -145,7 +145,7 @@ body {
     background-color: white;
     position: sticky;
     top: 70px;
-    z-index: -1;
+    z-index: 0;
     margin-bottom: 70px;
 }
 
@@ -409,6 +409,7 @@ body {
     height: 400px;
     margin-top: 50px;
     transform: rotateY(0deg);
+    margin: 30px 40px 30px 40px;
 }
 
 .exp-box {
@@ -492,10 +493,10 @@ body {
 
 @keyframes awardslide {
     from {
-        right: 1000px;
+        left: 1000px;
     }
     to {
-        right: 0px;
+        left: 0px;
     }
 }
 

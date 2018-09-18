@@ -39,7 +39,7 @@ dbx.filesGetTemporaryLink(previewArg).then(function (res) {
 module.exports.homeCtrl = function (req, res) {
     var exp = home.experience;
     var count = 0;
-    var currWidth = "";
+    var currWidth = "col-md-8";
     for (var x = 0; x < exp.length; x++) {
         if (typeof exp[x].start == "string") {
 
