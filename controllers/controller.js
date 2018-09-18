@@ -51,21 +51,8 @@ module.exports.homeCtrl = function (req, res) {
                 exp[x].end = "present";
             }
         }
-
-        if (count % 3 == 0) {
-            if (exp.length - x >= 3) {
-                currWidth = "col-md-4";
-            } else if (exp.length - x == 2) {
-                currWidth = "col-md-offset-2 col-md-4";
-            } else {
-                currWidth = "col-md-offset-4 col-md-4";
-            }
-        } else if (count % 3 == 1) {
-            if (currWidth == "col-md-offset-2 col-md-4") {
-                currWidth = "col-md-4";
-            }
-        }
-        exp[x].width = currWidth;
+        
+        exp[x].width =  currWidth;
         count++;
     }
 

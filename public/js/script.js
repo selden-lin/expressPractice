@@ -8,63 +8,58 @@ var aboutHit = 0;
     drawWelcome();
     window.onresize = drawWelcome;
 
-    var navItems = document.getElementsByClassName("nav-link"); 
-    for(var x=0;x<navItems.length-2;x++) {
+    var navItems = document.getElementsByClassName("nav-link");
+    for (var x = 0; x < navItems.length - 2; x++) {
         word = navItems[x].id.slice(4);
         navItems[x].onclick = smoothScroll(word);
     }
-    
-    
+
+
     // When the user scrolls to the experience section, the cards flip
     docScroll();
     window.onscroll = docScroll;
-    
 })();
 
 function docScroll() {
-    // flipping the exp cards on scroll
-    var experience = document.getElementById("experience");
     var exp = document.getElementsByClassName("exp-cell");
-    var about = document.getElementById("about");
     var aboutCells = document.getElementsByClassName("about-skills-cell");
-    var aboutContent = document.getElementsByClassName("about-pic-content")[0];
-    var aboutPic = document.getElementsByClassName("about-pic")[0];
-    
-    if(document.body.scrollTop >= about.offsetTop-70 &&  document.body.scrollTop <= about.offsetTop+aboutContent.offsetHeight-window.innerHeight) {
-        aboutPic.style.top = 70;
-        aboutPic.style.position = "fixed";
-    } else if(document.body.scrollTop < about.offsetTop-70){
-        aboutPic.style.position = "absolute";
-        aboutPic.style.top = 0;
-    } else{
-        console.log(aboutContent.offsetHeight+" "+document.body.scrollTop);
-        aboutPic.style.position = "absolute";
-        aboutPic.style.top = about.offsetTop+aboutContent.offsetHeight-(2*window.innerHeight)-10;
+
+    // for the sticky image effect
+    var blocks = [];
+    blocks.push(document.getElementById("about"));
+    blocks.push(document.getElementById("experience"));
+    blocks.push(document.getElementById("awards"));
+    var aboutContent = document.getElementsByClassName("about-pic-content");
+    var aboutPic = document.getElementsByClassName("about-pic");
+
+    for (var x = 0; x < blocks.length; x++) {
+        stickyElement(aboutPic[x], aboutContent[x], blocks[x]);
     }
-    
-    if(aboutHit == 0 && document.body.scrollTop >= about.offsetTop) {
-        for(var x=0;x<aboutCells.length;x++) {
+
+    // for the animations on scrolling
+    if (aboutHit == 0 && document.body.scrollTop >= about.offsetTop) {
+        for (var x = 0; x < aboutCells.length; x++) {
             aboutCells[x].classList.add("about-skills-rise");
             aboutCells[x].style.width = "100%";
         }
         aboutHit = 1;
     }
-    
-    if(expHit == 0 && document.body.scrollTop >= experience.offsetTop-300) {
-        for(var x=0;x<exp.length;x++) {
+
+    if (expHit == 0 && document.body.scrollTop >= experience.offsetTop - 300) {
+        for (var x = 0; x < exp.length; x++) {
             exp[x].classList.add("exp-flip");
             exp[x].style.transform = "rotateY(180deg)";
             exp[x].style.transform = "rotateY(0deg)";
         }
         expHit = 1;
     }
-    
+
     //  animation of the award list on scroll
     var awards = document.getElementById("awards");
     var items = document.getElementsByClassName("award-row");
-    
-    if(awardHit == 0 && document.body.scrollTop >= awards.offsetTop-200) {
-        for(var x=0;x<items.length;x++) {
+
+    if (awardHit == 0 && document.body.scrollTop >= awards.offsetTop - 200) {
+        for (var x = 0; x < items.length; x++) {
             items[x].classList.add("award-animate");
         }
         awardHit = 1;
@@ -97,12 +92,12 @@ function smoothScroll(div) {
 // Draws the heartbeat animation and resizes the panes on browser resize
 function drawWelcome() {
     var wm = document.getElementById("welcomeMessage");
-    var aboutImg = document.getElementsByClassName("about-pic")[0];
-    var aboutContent = document.getElementsByClassName("about-pic-content")[0];
+    var aboutImg = document.getElementsByClassName("about-pic");
+    var aboutContent = document.getElementsByClassName("about-pic-content");
     var height = window.innerHeight;
     var width = window.innerWidth;
 
-    
+
     var welcome = document.getElementById("welcome");
     var rows = document.getElementsByClassName("row-1");
 
@@ -114,72 +109,91 @@ function drawWelcome() {
         }
 
         // About pic
-        aboutContent.style.minHeight = height;
-        aboutContent.style.maxWidth = width;
-        aboutImg.style.height = height;
-        
+        for (var x = 0; x < aboutImg.length; x++) {
+            aboutContent[x].style.minHeight = height;
+            aboutContent[x].style.maxWidth = width;
+            aboutImg[x].style.height = height;
+            aboutImg[x].style.minWidth = width / 2;
+        }
+
         // The heartbeat animation
-        var heartDiv = document.getElementById("heart-div");
-        heartDiv.style.height = window.innerHeight + "px";
-        heartDiv.style.width = window.innerWidth + "px";
+        drawHeart(width, height);
+    }
+}
 
-        var canvas = document.getElementById("myCanvas");
-        var ctx = canvas.getContext("2d");
-        canvas.height = window.innerHeight;
-        canvas.width = window.innerWidth;
-        canvas.style.height = canvas.height + "px";
-        canvas.style.width = canvas.width + "px";
 
-        var height = window.innerHeight;
-        var width = window.innerWidth;
-        ctx.strokeStyle = " #f9d3d2";
+function drawHeart(width, height) {
+    var heartDiv = document.getElementById("heart-div");
+    heartDiv.style.height = window.innerHeight + "px";
+    heartDiv.style.width = window.innerWidth + "px";
 
-        ctx.moveTo(0, height * 0.6);
-        ctx.lineTo(width * 0.35, height * 0.6);
-        ctx.stroke();
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+    canvas.height = height
+    canvas.width = width
+    canvas.style.height = canvas.height + "px";
+    canvas.style.width = canvas.width + "px";
 
-        ctx.moveTo(width * 0.35, height * 0.6);
-        ctx.lineTo(width * 0.37, height * 0.5);
-        ctx.stroke();
+    ctx.strokeStyle = " #f9d3d2";
 
-        ctx.moveTo(width * 0.37, height * 0.5);
-        ctx.lineTo(width * 0.39, height * 0.6);
-        ctx.stroke();
+    ctx.moveTo(0, height * 0.6);
+    ctx.lineTo(width * 0.35, height * 0.6);
+    ctx.stroke();
 
-        ctx.moveTo(width * 0.39, height * 0.6);
-        ctx.lineTo(width * 0.43, height * 0.6);
-        ctx.stroke();
+    ctx.moveTo(width * 0.35, height * 0.6);
+    ctx.lineTo(width * 0.37, height * 0.5);
+    ctx.stroke();
 
-        ctx.moveTo(width * 0.43, height * 0.6);
-        ctx.lineTo(width * 0.45, height * 0.68);
-        ctx.stroke();
+    ctx.moveTo(width * 0.37, height * 0.5);
+    ctx.lineTo(width * 0.39, height * 0.6);
+    ctx.stroke();
 
-        ctx.moveTo(width * 0.45, height * 0.68);
-        ctx.lineTo(width * 0.49, height * 0.3);
-        ctx.stroke();
+    ctx.moveTo(width * 0.39, height * 0.6);
+    ctx.lineTo(width * 0.43, height * 0.6);
+    ctx.stroke();
 
-        ctx.moveTo(width * 0.49, height * 0.3);
-        ctx.lineTo(width * 0.55, height * 0.77);
-        ctx.stroke();
+    ctx.moveTo(width * 0.43, height * 0.6);
+    ctx.lineTo(width * 0.45, height * 0.68);
+    ctx.stroke();
 
-        ctx.moveTo(width * 0.55, height * 0.77);
-        ctx.lineTo(width * 0.58, height * 0.6);
-        ctx.stroke();
+    ctx.moveTo(width * 0.45, height * 0.68);
+    ctx.lineTo(width * 0.49, height * 0.3);
+    ctx.stroke();
 
-        ctx.moveTo(width * 0.58, height * 0.6);
-        ctx.lineTo(width * 0.62, height * 0.6);
-        ctx.stroke();
+    ctx.moveTo(width * 0.49, height * 0.3);
+    ctx.lineTo(width * 0.55, height * 0.77);
+    ctx.stroke();
 
-        ctx.moveTo(width * 0.62, height * 0.6);
-        ctx.lineTo(width * 0.64, height * 0.53);
-        ctx.stroke();
+    ctx.moveTo(width * 0.55, height * 0.77);
+    ctx.lineTo(width * 0.58, height * 0.6);
+    ctx.stroke();
 
-        ctx.moveTo(width * 0.64, height * 0.53);
-        ctx.lineTo(width * 0.66, height * 0.6);
-        ctx.stroke();
+    ctx.moveTo(width * 0.58, height * 0.6);
+    ctx.lineTo(width * 0.62, height * 0.6);
+    ctx.stroke();
 
-        ctx.moveTo(width * 0.66, height * 0.6);
-        ctx.lineTo(width, height * 0.6);
-        ctx.stroke();
+    ctx.moveTo(width * 0.62, height * 0.6);
+    ctx.lineTo(width * 0.64, height * 0.53);
+    ctx.stroke();
+
+    ctx.moveTo(width * 0.64, height * 0.53);
+    ctx.lineTo(width * 0.66, height * 0.6);
+    ctx.stroke();
+
+    ctx.moveTo(width * 0.66, height * 0.6);
+    ctx.lineTo(width, height * 0.6);
+    ctx.stroke();
+}
+
+function stickyElement(image, content, block) {
+    if (document.body.scrollTop >= block.offsetTop - 70 && document.body.scrollTop <= block.offsetTop + content.offsetHeight - window.innerHeight) {
+        image.style.top = 70;
+        image.style.position = "fixed";
+    } else if (document.body.scrollTop < block.offsetTop - 70) {
+        image.style.position = "absolute";
+        image.style.top = 0;
+    } else {
+        image.style.position = "absolute";
+        image.style.top = content.offsetHeight - (window.innerHeight) + 70;
     }
 }
