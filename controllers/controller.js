@@ -9,6 +9,7 @@ var Dropbox = require('dropbox').Dropbox;
 var Dropboxteam = require('dropbox').DropboxTeam;
 var stream = require("stream");
 
+
 var pageSize = 10;
 var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
@@ -24,44 +25,49 @@ var previewArg = {
 dbx.filesGetTemporaryLink(previewArg).then(function (res) {
     //console.log(res.link);
     http.get(res.link, function (res) {
-//        var blob = txt.fileBlob;
-//
-//        var reader = new FileReader()
-//        reader.addEventListener("loadend", function () {
-//            console.log(reader.result);
-//        })
-//        reader.readAsText(blob);
+        //        var blob = txt.fileBlob;
+        //
+        //        var reader = new FileReader()
+        //        reader.addEventListener("loadend", function () {
+        //            console.log(reader.result);
+        //        })
+        //        reader.readAsText(blob);
     });
 })
 
 // ****************** The front end *************************
 
 module.exports.homeCtrl = function (req, res) {
-    var exp = home.experience;
-    var count = 0;
-    var currWidth = "col-md-8";
-    for (var x = 0; x < exp.length; x++) {
-        if (typeof exp[x].start == "string") {
 
-        } else {
-            exp[x].start = months[exp[x].start[0]] + " " + exp[x].start[1];
-            if (exp[x].end[0] != "present") {
-                exp[x].end = months[exp[x].end[0]] + " " + exp[x].end[1];
+        var exp = home.experience;
+        var count = 0;
+        var currWidth = "col-md-8";
+        for (var x = 0; x < exp.length; x++) {
+            if (typeof exp[x].start == "string") {
+
             } else {
-                exp[x].end = "present";
+                exp[x].start = months[exp[x].start[0]] + " " + exp[x].start[1];
+                if (exp[x].end[0] != "present") {
+                    exp[x].end = months[exp[x].end[0]] + " " + exp[x].end[1];
+                } else {
+                    exp[x].end = "present";
+                }
             }
+
+            exp[x].width = currWidth;
+            count++;
         }
-        
-        exp[x].width =  currWidth;
-        count++;
-    }
 
-    home.experience = JSON.parse(JSON.stringify(exp));
+        home.experience = JSON.parse(JSON.stringify(exp));
 
-    res.render("home", {
-        title: home.title,
-        items: home
-    });
+        res.render("home", {
+            title: home.title,
+            items: home
+        });
+
+
+    //loader.add(__dirname+"/../public/images/experience.png");
+    //loader.add(__dirname+"/../public/images/awards.png");
 };
 
 module.exports.blogListCtrl = function (req, res) {

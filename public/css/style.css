@@ -20,6 +20,15 @@ body {
     padding: 10px;
 }
 
+#preloader {
+    z-index: 1000000000;
+    position: fixed;
+    font-size: 100pt;
+    color: white;
+    background-color: black;
+    width: 100000000px;
+    height: 1000000px;
+}
 
 
 /****************************** Bootstrap *******************************************/
