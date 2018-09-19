@@ -8,7 +8,7 @@ var fetch = require("isomorphic-fetch");
 var Dropbox = require('dropbox').Dropbox;
 var Dropboxteam = require('dropbox').DropboxTeam;
 var stream = require("stream");
-var loader = require("image-preloader");
+
 
 var pageSize = 10;
 var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];

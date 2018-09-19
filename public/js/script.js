@@ -34,7 +34,7 @@ var aboutHit = 0;
                 result.forEach(function (image) {
                     if (image.status) {
                         
-                        image.value.classList.add('about-pic-img', 'loaded');
+                        image.value.classList.add('loaded');
                     } else {
                         image.value.remove();
                     }
