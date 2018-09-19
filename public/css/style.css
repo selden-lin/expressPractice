@@ -21,28 +21,15 @@ body {
 }
 
 #preloader {
-	background: #000;
-	position:fixed;
-	left:0px; 
-	top:0px; 
-	width:100%; 
-	height:100%; 
-	text-align:center;
-	color:#fff;
+    z-index: 1000000000;
+    position: fixed;
+    font-size: 100pt;
+    color: white;
+    background-color: black;
+    width: 100000000px;
+    height: 1000000px;
 }
-#preloader div {
-	width:400px;
-	margin:auto;
-	height: 3px;
-	text-align:center;
-	border: 4px solid #111;
-	overflow:hidden;
-}
-#preloader_image {
-	position: relative;
-	left:0px;
-	top:-10px;
-}
+
 
 /****************************** Bootstrap *******************************************/
 
