@@ -58,7 +58,7 @@ function docScroll() {
     var awards = document.getElementById("awards");
     var items = document.getElementsByClassName("award-row");
 
-    if (awardHit == 0 && document.body.scrollTop >= awards.offsetTop - 200) {
+    if (awardHit == 0 && document.body.scrollTop >= awards.offsetTop - 100) {
         for (var x = 0; x < items.length; x++) {
             items[x].classList.add("award-animate");
         }
