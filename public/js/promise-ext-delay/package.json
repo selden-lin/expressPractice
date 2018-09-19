@@ -1,0 +1,65 @@
+{
+  "_from": "promise-ext-delay@^1.0.4",
+  "_id": "promise-ext-delay@1.0.4",
+  "_inBundle": false,
+  "_integrity": "sha1-sFUm+hw4KkCFi8K4F3sqXDQ3tPs=",
+  "_location": "/promise-ext-delay",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "promise-ext-delay@^1.0.4",
+    "name": "promise-ext-delay",
+    "escapedName": "promise-ext-delay",
+    "rawSpec": "^1.0.4",
+    "saveSpec": null,
+    "fetchSpec": "^1.0.4"
+  },
+  "_requiredBy": [
+    "#DEV:/"
+  ],
+  "_resolved": "https://registry.npmjs.org/promise-ext-delay/-/promise-ext-delay-1.0.4.tgz",
+  "_shasum": "b05526fa1c382a40858bc2b8177b2a5c3437b4fb",
+  "_spec": "promise-ext-delay@^1.0.4",
+  "_where": "/Users/selden.lin@ibm.com/Documents/friendSite/node_modules/image-preloader",
+  "author": {
+    "name": "Sergey Melyukov"
+  },
+  "bugs": {
+    "url": "https://github.com/smelukov/PromiseDelay/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "Simple delay promise",
+  "devDependencies": {
+    "bower": "^1.7.2",
+    "chai": "^3.4.1",
+    "del": "^2.2.0",
+    "gulp": "^3.9.0",
+    "gulp-header": "^1.7.1",
+    "gulp-jscs": "^3.0.2",
+    "gulp-mocha": "^2.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.5.1",
+    "jscs": "^2.8.0",
+    "mocha": "^2.3.4"
+  },
+  "homepage": "https://github.com/smelukov/PromiseDelay#readme",
+  "keywords": [
+    "promise",
+    "es6",
+    "delay"
+  ],
+  "license": "MIT",
+  "main": "src/main.js",
+  "name": "promise-ext-delay",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smelukov/PromiseDelay.git"
+  },
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha"
+  },
+  "version": "1.0.4"
+}

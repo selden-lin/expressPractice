@@ -5,9 +5,49 @@ var awardHit = 0;
 var aboutHit = 0;
 
 (function () {
+    require.config({
+        paths: {
+            'image-preloader': '/js/build/imagePreloader.min',
+            'promise-ext-delay': '/js/promise-ext-delay/build/promiseDelay.min'
+        }
+    });
+
+    require(['image-preloader', 'promise-ext-delay'], function (ImagePreloader, PromiseDelay) {
+        PromiseDelay();
+
+        var preloader = new ImagePreloader(),
+            urls = ['/images/experience.jpg', "/images/awards.png", "/images/about.png"],
+            images = Array.prototype.slice.call(document.getElementsByTagName('img')).concat(urls),
+            total = images.length,
+            loaded = 0;
+
+        preloader.onProgress = function () {
+            progress.textContent = progress.style.width = parseInt(100 / total * ++loaded) + '%';
+        };
+
+        preloader.fallbackImage = 'https://browshot.com/static/images/not-found.png';
+        preloader.preload(images)
+            .delay(500)
+            .then(function (result) {
+                loadingBlock.classList.add('hidden');
+
+                result.forEach(function (image) {
+                    if (image.status) {
+                        
+                        image.value.classList.add('about-pic-img', 'loaded');
+                    } else {
+                        image.value.remove();
+                    }
+                })
+            });
+    });
+
+
+
+
     var img_links = ["/images/about.png", "/images/awards.png", "/images/experience.jpg"];
     var imgs = [];
-    for(var x=0;x<img_links.length;x++) {
+    for (var x = 0; x < img_links.length; x++) {
         imgs.push(new Image());
         imgs[x].src = img_links[x];
     }
@@ -102,8 +142,8 @@ function drawWelcome() {
     var aboutContent = document.getElementsByClassName("about-pic-content");
     var height = window.innerHeight;
     var width = window.innerWidth;
-    
-    
+
+
 
 
     var welcome = document.getElementById("welcome");
@@ -118,19 +158,19 @@ function drawWelcome() {
 
         // About pic
         for (var x = 0; x < aboutImg.length; x++) {
-            console.log(height+" "+width+" "+aboutImg[x].offsetHeight+" "+aboutImg[x].offsetWidth);
-            if(aboutImg[x].offsetHeight == 0 && aboutImg[x].offsetWidth == 0) {
+            console.log(height + " " + width + " " + aboutImg[x].offsetHeight + " " + aboutImg[x].offsetWidth);
+            if (aboutImg[x].offsetHeight == 0 && aboutImg[x].offsetWidth == 0) {
                 break;
             }
-            
+
             aboutContent[x].style.minHeight = height;
             aboutContent[x].style.maxWidth = width;
-            if(aboutImg[x].offsetHeight > aboutImg[x].offsetWidth) {
+            if (aboutImg[x].offsetHeight > aboutImg[x].offsetWidth) {
                 aboutImg[x].style.width = width / 2;
-            } else if(aboutImg[x].offsetHeight < aboutImg[x].offsetWidth){
+            } else if (aboutImg[x].offsetHeight < aboutImg[x].offsetWidth) {
                 aboutImg[x].style.height = height;
             } else {
-                if(width < height) {
+                if (width < height) {
                     aboutImg[x].style.height = height;
                 } else {
                     aboutImg[x].style.width = width / 2;

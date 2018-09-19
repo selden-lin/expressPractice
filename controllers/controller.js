@@ -8,7 +8,7 @@ var fetch = require("isomorphic-fetch");
 var Dropbox = require('dropbox').Dropbox;
 var Dropboxteam = require('dropbox').DropboxTeam;
 var stream = require("stream");
-
+var loader = require("image-preloader");
 
 var pageSize = 10;
 var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -36,34 +36,33 @@ dbx.filesGetTemporaryLink(previewArg).then(function (res) {
 })
 
 // ****************** The front end *************************
-
 module.exports.homeCtrl = function (req, res) {
+    var exp = home.experience;
+    var count = 0;
+    var currWidth = "col-md-8";
+    for (var x = 0; x < exp.length; x++) {
+        if (typeof exp[x].start == "string") {
 
-        var exp = home.experience;
-        var count = 0;
-        var currWidth = "col-md-8";
-        for (var x = 0; x < exp.length; x++) {
-            if (typeof exp[x].start == "string") {
-
+        } else {
+            exp[x].start = months[exp[x].start[0]] + " " + exp[x].start[1];
+            if (exp[x].end[0] != "present") {
+                exp[x].end = months[exp[x].end[0]] + " " + exp[x].end[1];
             } else {
-                exp[x].start = months[exp[x].start[0]] + " " + exp[x].start[1];
-                if (exp[x].end[0] != "present") {
-                    exp[x].end = months[exp[x].end[0]] + " " + exp[x].end[1];
-                } else {
-                    exp[x].end = "present";
-                }
+                exp[x].end = "present";
             }
-
-            exp[x].width = currWidth;
-            count++;
         }
 
-        home.experience = JSON.parse(JSON.stringify(exp));
+        exp[x].width = currWidth;
+        count++;
+    }
 
-        res.render("home", {
-            title: home.title,
-            items: home
-        });
+    home.experience = JSON.parse(JSON.stringify(exp));
+
+    res.render("home", {
+        title: home.title,
+        items: home
+    });
+
 
 
     //loader.add(__dirname+"/../public/images/experience.png");
