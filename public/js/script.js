@@ -5,6 +5,12 @@ var awardHit = 0;
 var aboutHit = 0;
 
 (function () {
+    var img_links = ["/images/about.png", "/images/awards.png", "/images/experience.jpg"];
+    var imgs = [];
+    for(var x=0;x<img_links.length;x++) {
+        imgs.push(new Image());
+        imgs[x].src = img_links[x];
+    }
     drawWelcome();
     window.onresize = drawWelcome;
 
@@ -96,6 +102,8 @@ function drawWelcome() {
     var aboutContent = document.getElementsByClassName("about-pic-content");
     var height = window.innerHeight;
     var width = window.innerWidth;
+    
+    
 
 
     var welcome = document.getElementById("welcome");
@@ -111,6 +119,10 @@ function drawWelcome() {
         // About pic
         for (var x = 0; x < aboutImg.length; x++) {
             console.log(height+" "+width+" "+aboutImg[x].offsetHeight+" "+aboutImg[x].offsetWidth);
+            if(aboutImg[x].offsetHeight == 0 && aboutImg[x].offsetWidth == 0) {
+                break;
+            }
+            
             aboutContent[x].style.minHeight = height;
             aboutContent[x].style.maxWidth = width;
             if(aboutImg[x].offsetHeight > aboutImg[x].offsetWidth) {
