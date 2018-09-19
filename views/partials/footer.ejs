@@ -1,3 +1,11 @@
+<script>
+    var img_links = ["/images/about.png", "/images/awards.png", "/images/experience.jpg"];
+    var imgs = [];
+    for(var x=0;x<img_links.length;x++) {
+        imgs.push(new Image());
+        imgs[x].src = img_links[x];
+    }
+</script>
 <script type="text/javascript" src="/js/vanilla-tilt.min.js"></script>
 <script src="/js/script.js"></script>
 <div class="footer">
