@@ -112,19 +112,21 @@
                                         <div class="exp-content">
                                             <div class="exp-pic <%= items.experience[x].icon %>"></div>
                                             <div class="exp-content-text">
-                                                <%= items.experience[x].description %>
+                                                <%= items.experience[x].shortDescription %>
                                             </div>
                                         </div>
                                         <div class="exp-title">
-                                            <h3>
-                                                <%= items.experience[x].association %>
-                                            </h3>
-                                            <p>
-                                                <%= items.experience[x].position %>
-                                            </p>
-                                            <p>
-                                                <%= items.experience[x].start +" - "+ items.experience[x].end %>
-                                            </p>
+                                            <a href="" class="no-link" data-toggle="modal" data-target="#modal<%= items.experience[x].id %>">
+                                                <h3>
+                                                    <%= items.experience[x].association %>
+                                                </h3>
+                                                <p>
+                                                    <%= items.experience[x].position %>
+                                                </p>
+                                                <p>
+                                                    <%= items.experience[x].start +" - "+ items.experience[x].end %>
+                                                </p>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
@@ -167,6 +169,34 @@
 
             </div>
 
+            <!-- Modals for the experience section -->
+
+            <% for(var x=0;x<items.experience.length;x++) { %>
+        
+            <div class="modal fade" id="modal<%= items.experience[x].id %>" role="dialog">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h2 class="text-center modal-title"><%= items.experience[x].position %></h2>
+                            <h4 class="text-center"><%= items.experience[x].association %></h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="text-center">
+                                <span class="exp-modal-pic <%= items.experience[x].icon %>"></span>
+                            </div>
+                            <p class="exp-modal-text"><%= items.experience[x].description %></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <%   }   %>
+
+            <!-- The contact info section -->
 
             <%- include footer.ejs %>
     </body>

@@ -158,6 +158,7 @@ module.exports.postEditHome = function (req, res) {
                     home.awards[x].title = req.body["awards-title"];
                     home.awards[x].description = req.body["awards-description"];
                     home.awards[x].year = req.body["awards-year"];
+                    break;
                 }
             } else if (x == home.awards.length - 1) {
                 var temp = {};
@@ -172,8 +173,19 @@ module.exports.postEditHome = function (req, res) {
     if (req.body["experience-id"] != "") {
         for (var x = 0; x < home.experience.length; x++) {
             if (home.experience[x].id == req.body["experience-id"]) {
-                if (req.body["leadership-location"].trim() == "" && req.body["leadership-start"].trim() == "" && req.body["leadership-end"].trim() == "" && req.body["leadership-association"].trim() == "" && req.body["leadership-position"].trim() == "") {
+                if (req.body["leadership-location"].trim() == "" && req.body["leadership-start"].trim() == "" && req.body["leadership-end"].trim() == "" && req.body["leadership-association"].trim() == "" && req.body["leadership-position"].trim() == "" && req.body["leadership-short-description"].trim() == "") {
                     home.experience.splice(x, 1);
+                    break;
+                } else {
+                    home.experience[x].id = req.body["experience-id"];
+                    home.experience[x].location = req.body["leadership-location"];
+                    home.experience[x].start = req.body["leadership-start"];
+                    home.experience[x].end = req.body["leadership-end"];
+                    home.experience[x].association = req.body["leadership-association"];
+                    home.experience[x].position = req.body["leadership-position"];
+                    home.experience[x].icon = req.body["experience-icon"];
+                    home.experience[x].description = req.body["leadership-description"];
+                    home.experience[x].shortDescription = req.body["leadership-short-description"];
                     break;
                 }
             } else if (x == home.experience.length - 1) {
@@ -186,6 +198,7 @@ module.exports.postEditHome = function (req, res) {
                 temp2.position = req.body["leadership-position"];
                 temp2.icon = req.body["experience-icon"];
                 temp2.description = req.body["leadership-description"];
+                temp2.shortDescription = req.body["leadership-short-description"];
                 home.experience.push(JSON.parse(JSON.stringify(temp2)));
             }
         }
@@ -193,9 +206,13 @@ module.exports.postEditHome = function (req, res) {
     if (req.body["skills-id"] != "") {
         for (var x = 0; x < home.skills.length; x++) {
             if (home.skills[x].id == req.body["skills-id"]) {
-
                 if (req.body["skills-title"].trim() == "" && req.body["skills-level"].trim() == "") {
                     home.skills.splice(x, 1);
+                    break;
+                } else {
+                    home.skills[x].id = req.body["skills-id"];
+                    home.skills[x].title = req.body["skills-title"];
+                    home.skills[x].level = req.body["skills-level"];
                     break;
                 }
             } else if (x == home.skills.length - 1) {
@@ -214,6 +231,11 @@ module.exports.postEditHome = function (req, res) {
                 if (req.body["funSkills-title"].trim() == "" && req.body["funSkills-level"].trim() == "") {
                     home.funSkills.splice(x, 1);
                     break;
+                } else {
+                    home.funSkills[x].id = req.body["funSkills-id"];
+                    home.funSkills[x].title = req.body["funSkills-title"];
+                    home.funSkills[x].level = req.body["funSkills-level"];
+                    break;
                 }
             } else if (x == home.funSkills.length - 1) {
                 var temp5 = {};
@@ -230,6 +252,13 @@ module.exports.postEditHome = function (req, res) {
             if (home.education[x].id == req.body["education-id"]) {
                 if (req.body["education-program"].trim() == "" && req.body["education-school"].trim() == "" && req.body["education-year"].trim() == "" && req.body["education-gpa"].trim() == "") {
                     home.education.splice(x, 1);
+                    break;
+                } else {
+                    home.education[x].id = req.body["education-id"];
+                    home.education[x].school = req.body["education-school"];
+                    home.education[x].program = req.body["education-program"];
+                    home.education[x].year = req.body["education-year"];
+                    home.education[x].gpa = req.body["education-gpa"];
                     break;
                 }
             } else if (x == home.education.length - 1) {

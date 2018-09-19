@@ -9,6 +9,7 @@ var leadershipHandler = function(id) {
         var positionForm = document.getElementById("leadership-position");
         var descriptionForm = document.getElementById("leadership-description");
         var expId = document.getElementById("experience-id");
+        var short = document.getElementById("leadership-short-description");
         var expIcon = document.getElementById("experience-icon");
         
         var word = event.target.id;
@@ -30,6 +31,7 @@ var leadershipHandler = function(id) {
                         descriptionForm.value = ret[x].description;
                         expId.value = ret[x].id;
                         expIcon.value = ret[x].icon;
+                        short.value = ret[x].shortDescription;
                     }
                 }
             }

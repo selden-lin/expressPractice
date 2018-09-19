@@ -81,7 +81,7 @@
                             <th>end</th>
                             <th>Association</th>
                             <th>Position</th>
-                            <th>Description</th>
+                            <th>Short Description</th>
                             <th>Icon</th>
                             <th></th>
                         </tr>
@@ -93,7 +93,7 @@
                             <td><%= items.experience[x].end %></td>
                             <td><%= items.experience[x].association %></td>
                             <td><%= items.experience[x].position %></td>
-                            <td><%= items.experience[x].description %></td>
+                            <td><%= items.experience[x].shortDescription %></td>
                             <td><%= items.experience[x].icon %></td>
                             <td><input id="admin-leadership-<%= items.experience[x].id %>" type="button" class="adminEditField btn btn-primary" value="edit"></td>
                             <script src="/js/handlers/experience.js"></script>
@@ -122,8 +122,11 @@
                         <input type="text" class="form-control" id="leadership-position" name="leadership-position">
                         
                         <!----- figure how this bullet point thing for the description -->
+                        <label for="leadership-description">Short Description</label>
+                        <input type="text" class="form-control" id="leadership-short-description" name="leadership-short-description">
+                        
                         <label for="leadership-description">Description</label>
-                        <input type="text" class="form-control" id="leadership-description" name="leadership-description">
+                        <textarea class="form-control" id="leadership-description" name="leadership-description"></textarea>
                     </div>
             </div>
         </div>

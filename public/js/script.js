@@ -112,7 +112,7 @@ function drawWelcome() {
         for (var x = 0; x < aboutImg.length; x++) {
             aboutContent[x].style.minHeight = height;
             aboutContent[x].style.maxWidth = width;
-            console.log(aboutImg[x].height +" "+ aboutImg[x].offsetWidth);
+
             if(aboutImg[x].offsetHeight > aboutImg[x].offsetWidth) {
                 aboutImg[x].style.width = width / 2;
             } else if(aboutImg[x].offsetHeight < aboutImg[x].offsetWidth){

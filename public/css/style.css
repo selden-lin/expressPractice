@@ -403,6 +403,21 @@ body {
     overflow: hidden;
 }
 
+.no-link:hover, .no-link:active, .no-link:link, .no-link:visited {
+    text-decoration: none;
+    color: inherit;
+}
+
+.exp-modal-text {
+    padding: 30px;
+    text-align: center;
+    font-size: 15pt;
+}
+
+.exp-modal-pic {
+    font-size: 200pt;
+}
+
 .exp-cell {
     height: 400px;
     margin-top: 50px;
