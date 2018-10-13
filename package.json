@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js" 
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
@@ -39,6 +39,6 @@
     "vanilla-tilt": "^1.4.1"
   },
   "devDependencies": {
-    "nodemon": "^1.18.3"
+    "nodemon": "^1.18.4"
   }
 }

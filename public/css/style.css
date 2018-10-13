@@ -95,6 +95,10 @@ img {
     display: none;
 }
 
+.link-wrap:hover {
+    background-color: #e6e6e6;
+    
+}
 /****************************** Bootstrap *******************************************/
 
 .center {
